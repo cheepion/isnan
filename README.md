@@ -11,6 +11,7 @@ https://github.com/gatsbyjs/gatsby.git
     5. eslint 会代码规则约束工具
     6. immer + mobx 状态管理
     7. style-component css in js 样式管理
+    8. cnpm包管理工具, 解决插件骑墙的问题 
 
 ### 安装与调试
   1. 不建议安装
@@ -24,6 +25,7 @@ https://github.com/gatsbyjs/gatsby.git
   ### GatsbyJS 大礼包(插件表)
   ----
     * Typography.js: 全局排版主题定义()
+  
     * mobx  // 全局状态管理
     * redux-devtools  // 页面调试插件
 
