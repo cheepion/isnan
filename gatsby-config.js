@@ -1,8 +1,10 @@
+// const { createProxyMiddleware } = require("http-proxy-middleware")
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `查询头`,
+    description: `测试数据111111111111`,
+    author: `@测试数据321`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -55,5 +57,7 @@ module.exports = {
         // Add any options here
       },
     },
+    // md插件
+    `gatsby-transformer-remark`
   ],
 }
