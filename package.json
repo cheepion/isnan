@@ -46,7 +46,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "run": "gatsby develop --host 0.0.0.0",
+    "launch": "gatsby develop --host 0.0.0.0",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {
