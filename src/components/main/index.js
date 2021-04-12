@@ -1,8 +1,9 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { Container } from "./style"
 
-const Layout = ({ children }) => {
+const Main = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -24,8 +25,8 @@ const Layout = ({ children }) => {
   )
 }
 
-Layout.propTypes = {
+Main.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default Main

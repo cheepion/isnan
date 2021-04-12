@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Sidebar from '../components/sidebar'
 
 const IndexPage = () => (
   <Layout>
@@ -11,6 +12,7 @@ const IndexPage = () => (
     <h1>Hi guys</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
+    <Sidebar></Sidebar>
     {/* <StaticImage
       src="../images/gatsby-astronaut.png"
       width={300}
