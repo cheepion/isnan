@@ -14,7 +14,7 @@ const IndexPage = () => {
       <Seo title="Home" />
       <h1>Hi guys</h1>
       <p>graphql show</p>
-      <p>Now go build something great.</p>
+      <p>Now go build something great. 雷衣组他</p>
       <Sidebar></Sidebar>
 
       {/* <StaticImage
