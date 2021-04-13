@@ -13,7 +13,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/assets/images`,
       },
     },
     {
@@ -28,19 +28,37 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `my blog`,
+        short_name: `blog`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/assets/images/favicon.png`, // This path is relative to the root of the site.
+        "icons": [
+          {
+            src: `favicon/favicon-72.png`,
+            sizes: `72x72`,
+            type: `image/png`,
+          },{
+            src: `favicon/favicon-32.png`,
+            sizes: `32x32`,
+            type: `image/png`,
+          },
+          {
+            "src": "favicon/favicon-maskable.png",
+            "sizes": "128x128",
+            "type": "image/png",
+            "purpose": "maskable"
+          }
+        ],
+        "cacheDigest": null
       },
     },
     `gatsby-plugin-gatsby-cloud`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
     // 排版插件
     {
       resolve: `gatsby-plugin-typography`,
@@ -58,8 +76,12 @@ module.exports = {
       },
     },
     // 样式插件
-    // `gatsby-plugin-styled-components`,
-    'gatsby-plugin-styled-components',
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // displayName: false
+      },
+    },
     // md插件
     `gatsby-transformer-remark`,
   ],

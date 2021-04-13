@@ -4,10 +4,8 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Sidebar from '../components/sidebar'
-// import { graphql, useStaticQuery } from "gatsby"
 
 const IndexPage = () => {
-
 
     return (
       <Layout>
@@ -18,7 +16,7 @@ const IndexPage = () => {
       <Sidebar></Sidebar>
 
       {/* <StaticImage
-        src="../images/gatsby-astronaut.png"
+        src="../assets/images/gatsby-astronaut.png"
         width={300}
         quality={95}
         formats={["AUTO", "WEBP", "AVIF"]}
@@ -32,21 +30,4 @@ const IndexPage = () => {
     </Layout>
     )
 }
-// export const query = graphql`
-// query {
-//   allMarkdownRemark {
-//     totalCount
-//     edges {
-//       node {
-//         id
-//         frontmatter {
-//           title
-//           date(formatString: "DD MMMM, YYYY")
-//         }
-//         excerpt
-//       }
-//     }
-//   }
-// }
-// `
 export default IndexPage

@@ -3,9 +3,6 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { Container } from "./style"
 
-// import { css } from "@emotion/core"
-// import { rhythm } from "../utils/typography"
-
 const Sidebar = () => {
   // const Sidebar = ({ children }) => (.
   const data = useStaticQuery(graphql`
@@ -24,7 +21,6 @@ const Sidebar = () => {
       totalCount
     }
   }
-  
   `)
   console.log('data', data)
   return (
