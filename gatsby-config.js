@@ -16,6 +16,13 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown`,
+        path: `${__dirname}/src/source`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -53,23 +60,7 @@ module.exports = {
     // 样式插件
     // `gatsby-plugin-styled-components`,
     'gatsby-plugin-styled-components',
-    // {
-    //   resolve: `gatsby-plugin-styled-components`,
-      // options: {
-        // ssr: false
-        // displayName: false
-      //   name: `src`,
-      //   path: `${__dirname}/src/assets/styles`
-      // },
-    // },
     // md插件
     `gatsby-transformer-remark`,
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     name: `src`,
-    //     path: `${__dirname}/src/source/`
-    //   }
-    // }
   ],
 }

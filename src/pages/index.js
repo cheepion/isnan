@@ -16,6 +16,7 @@ const IndexPage = () => {
       <p>graphql show</p>
       <p>Now go build something great.</p>
       <Sidebar></Sidebar>
+
       {/* <StaticImage
         src="../images/gatsby-astronaut.png"
         width={300}
@@ -31,5 +32,21 @@ const IndexPage = () => {
     </Layout>
     )
 }
-
+// export const query = graphql`
+// query {
+//   allMarkdownRemark {
+//     totalCount
+//     edges {
+//       node {
+//         id
+//         frontmatter {
+//           title
+//           date(formatString: "DD MMMM, YYYY")
+//         }
+//         excerpt
+//       }
+//     }
+//   }
+// }
+// `
 export default IndexPage
