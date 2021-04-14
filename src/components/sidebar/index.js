@@ -1,10 +1,9 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import { Container } from "./style"
+import { Container, Personal, Catalog, Footer } from "./style"
 
-const Sidebar = () => {
-  // const Sidebar = ({ children }) => (.
+export const Sidebar = () => {
   const data = useStaticQuery(graphql`
   query MyQuery {
     allMarkdownRemark {
@@ -26,22 +25,37 @@ const Sidebar = () => {
   return (
     <>
       <Container>
-        <p>欢迎! 来到 Sidebar, red color is show under the bottom</p>
-        <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
-          {data.allMarkdownRemark.edges.map(({ node }) => (
-          <div key={node.id}>
-            {/* <h3 css={css` margin-bottom: ${rhythm(1 / 4)}; `} > */}
-            {node.frontmatter.title}{" "}
-            {/* <span  css={css`  color: #bbb; `} >  — {node.frontmatter.date}
-              </span> */}
-            {/* </h3> */}
-            <p>{node.excerpt}</p>
+        {/* 个人简介 */}
+        <Personal>
+          <div>作者信息</div>
+          <div>图片加描述</div>
+          <div>github 连接</div>
+        </Personal>
+        {/* 技术分类 */}
+        <Catalog>
+          <div>
+            <p>icon</p>
+            <p>Javascript</p>
           </div>
-        ))}
+          <div>
+            <p>icon</p>
+            <p>React</p>
+          </div>
+          <div>
+            <p>icon</p>
+            <p>GatsbyJS</p>
+          </div>
+          <div>
+            <p>icon</p>
+            <p>NestJS</p>
+          </div>
+        </Catalog>
+        {/* 主题文章切换 */}
+        <Footer>
+          <div>左边箭头</div>
+          <div>右边头箭</div>
+        </Footer>
       </Container>
-
     </>
   )
 }
-
-export default Sidebar

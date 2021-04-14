@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { HeaderSpace, Container, Footer } from './style'
 import "./layout.css"
 
-const Layout = ({ children }) => (
+export const Layout = ({ children }) => (
   <>
     <HeaderSpace />
     <Container>
@@ -16,7 +16,3 @@ const Layout = ({ children }) => (
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
-
-export default Layout
-
-
