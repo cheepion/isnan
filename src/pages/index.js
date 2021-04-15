@@ -7,7 +7,9 @@ const IndexPage = () => {
       <Layout>
         <Seo title="Home" />
         <Sidebar />
-        <Main />
+        {/* <Main /> */}
+        <Articles />
+        {/* <Detail /> */}
     </Layout>
     )
 }

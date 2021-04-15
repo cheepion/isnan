@@ -6,5 +6,7 @@
 
 // You can delete this file if you're not using it
 
-import wrapWithProvider from "./wrap-with-provider"
-export const wrapRootElement = wrapWithProvider
+import mobxProvider from "./mobxProvider"
+export const wrapRootElement = mobxProvider
+// import wrapWithProvider from "./wrap-with-provider"
+// export const wrapRootElement = wrapWithProvider

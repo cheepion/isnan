@@ -10,8 +10,6 @@ export const Container = styled.div`
   main {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
-    /* flex-shrink: 0; */
   }
 `
 export const Footer = styled.footer`
