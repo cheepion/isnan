@@ -10,7 +10,7 @@ const Articles = ({counterStore, articlesStore}) => {
   return (
     <>
       <Container >
-        <p onClick={ () => articlesStore.showSecondMsg()} >欢迎! 来到 Articles {counterStore.Count}</p>
+        <p onClick={ () => articlesStore.showMsg()} >欢迎! 来到 Articles {counterStore.Count}</p>
         <div>
           <button onClick={() => counterStore.Increment()}>Add</button>
           <button onClick={() => counterStore.Decrement()}>Subtract</button>

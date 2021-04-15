@@ -1,6 +1,13 @@
-import { observable, action, decorate } from "mobx"
+import { makeAutoObservable } from "mobx"
+
+// configure({
+//   enforceActions: "never",
+// })
 
 class CountModel {
+  constructor() {
+    makeAutoObservable(this)
+  }
   Count = 0
 
   Increment() {
@@ -12,9 +19,9 @@ class CountModel {
   }
 
 }
-decorate(CountModel, {
-  Count: observable,
-  Increment: action,
-  Decrement: action,
-})
+// decorate(CountModel, {
+//   Count: observable,
+//   Increment: action,
+//   Decrement: action,
+// })
 export const counterStore = new CountModel()

@@ -20,6 +20,8 @@
     "gatsby-source-filesystem": "^3.2.0",
     "gatsby-transformer-remark": "^3.2.0",
     "gatsby-transformer-sharp": "^3.2.0",
+    "mobx": "^6.2.0",
+    "mobx-react": "^7.1.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -27,9 +29,7 @@
     "react-typography": "^0.16.19",
     "styled-components": "^5.2.3",
     "typography": "^0.16.19",
-    "typography-theme-noriega": "^0.16.19",
-    "mobx": "^5.15.7",
-    "mobx-react": "^6.3.0"
+    "typography-theme-noriega": "^0.16.19"
   },
   "devDependencies": {
     "@types/node": "^14.14.37",
