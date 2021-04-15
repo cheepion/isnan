@@ -1,5 +1,5 @@
-import { counterStore } from './counterModel'
-import { articlesStore } from './articlesModel'
+import { counterStore } from './counter'
+import { articlesStore } from './articles'
 
 export default {
   counterStore,
