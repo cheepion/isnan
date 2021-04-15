@@ -4,23 +4,23 @@ import { useStaticQuery, graphql } from "gatsby"
 import { Container } from "./styles"
 import { inject, observer} from "mobx-react"
 
-const Articles = ({CounterStore, scStore}) => {
-  console.log("articles ", CounterStore)
-  console.log('scStore', scStore)
+const Articles = ({counterStore, articlesStore}) => {
+  console.log("articles ", counterStore)
+  console.log('articlesStore', articlesStore)
   return (
     <>
       <Container >
-        <p onClick={ () => scStore.showSecondMsg()} >欢迎! 来到 Articles {CounterStore.Count}</p>
+        <p onClick={ () => articlesStore.showSecondMsg()} >欢迎! 来到 Articles {counterStore.Count}</p>
         <div>
-          <button onClick={() => CounterStore.Increment()}>Add</button>
-          <button onClick={() => CounterStore.Decrement()}>Subtract</button>
+          <button onClick={() => counterStore.Increment()}>Add</button>
+          <button onClick={() => counterStore.Decrement()}>Subtract</button>
         </div>
       </Container>
     </>
   )
 }
 
-export default inject("CounterStore", 'scStore')(observer(Articles))
+export default inject("counterStore", 'articlesStore')(observer(Articles))
 
 // const Articles = inject(`CounterStore`, 'scStore')(
 //   observer(({CounterStore, scStore}) => {

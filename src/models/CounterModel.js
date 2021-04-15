@@ -1,6 +1,6 @@
 import { observable, action, decorate } from "mobx"
 
-class CounterModel {
+class CountModel {
   Count = 0
 
   Increment() {
@@ -12,9 +12,9 @@ class CounterModel {
   }
 
 }
-decorate(CounterModel, {
+decorate(CountModel, {
   Count: observable,
   Increment: action,
   Decrement: action,
 })
-export const CounterStore = new CounterModel()
+export const counterStore = new CountModel()

@@ -1,7 +1,7 @@
-import { CounterStore } from './CounterModel'
-import { scStore } from './SecondModel'
+import { counterStore } from './counterModel'
+import { articlesStore } from './articlesModel'
 
 export default {
-  CounterStore,
-  scStore
+  counterStore,
+  articlesStore
 }
