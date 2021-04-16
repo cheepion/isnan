@@ -1,9 +1,13 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import { Container } from "./style"
+import styled from 'styled-components'
 
-export const Detail = ({ children }) => {
+export const Container = styled.div`
+
+`
+
+const Detail = ({ children }) => {
   console.log(' children输出', children)
   return (
     <>
@@ -11,3 +15,5 @@ export const Detail = ({ children }) => {
     </>
   )
 }
+
+export default Detail
