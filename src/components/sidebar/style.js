@@ -8,16 +8,17 @@ export const Personal = styled.div`
   flex-direction: column;
   border-radius: 12px;
   background-color: #fff;
+  margin-bottom: 20px;
 `
 export const Catalog = styled.div`
   display: flex;
   flex-direction: column;
-  border-radius: 10;
+  border-radius: 10px;
   background-color: #fff;
-  div {
-    flex: 1;
-    flex-direction: row;
-  }
+`
+export const  CatalogContent = styled.div`
+  display: flex;
+  flex-direction: row;
 `
 export const Footer = styled.div`
   div {

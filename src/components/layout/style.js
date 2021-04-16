@@ -8,11 +8,7 @@ export const Container = styled.div`
   width: 960px;
   padding: 0 1.0875rem 1.45rem;
   display: flex;
-    flex-direction: row;
-  /* main {
-    display: flex;
-    flex-direction: row;
-  } */
+  flex-direction: row;
 `
 export const Footer = styled.footer`
   margin-top: 2rem;
