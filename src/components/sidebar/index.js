@@ -1,6 +1,6 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import { Container, Personal, Catalog, Footer } from "./style"
 
 export const Sidebar = () => {
@@ -27,7 +27,9 @@ export const Sidebar = () => {
       <Container>
         {/* 个人简介 */}
         <Personal>
-          <div>作者信息</div>
+          <div>作者信息
+            <Link to={"/articles"}>前往502</Link>
+          </div>
           <div>图片加描述</div>
           <div>github 连接</div>
         </Personal>

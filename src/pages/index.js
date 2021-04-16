@@ -1,15 +1,13 @@
 import * as React from "react"
 import { Layout, Main, Sidebar, Seo, Articles, Detail } from "../components"
+import { Link } from 'gatsby'
 
 const IndexPage = () => {
-
+    console.log('link', Link)
     return (
       <Layout>
         <Seo title="Home" />
-        <Sidebar />
-        {/* <Main /> */}
-        <Articles />
-        {/* <Detail /> */}
+        <Main />
     </Layout>
     )
 }
