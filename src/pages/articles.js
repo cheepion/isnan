@@ -5,7 +5,7 @@ import { Layout, Seo } from "../components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSteam, faJs } from "@fortawesome/free-brands-svg-icons"
 import styled from 'styled-components'
-// import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 // wrap Container
 const Container = styled.div`
