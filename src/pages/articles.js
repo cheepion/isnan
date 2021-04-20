@@ -10,50 +10,64 @@ import { useStaticQuery, graphql } from "gatsby"
 // wrap Container
 const Container = styled.div`
   background-color: #ededed;
+  margin-left: 20px;
+`
+const ArticlesBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  .article-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 600px;
+    .article-header__left {
+      background-color: #ff2211
+    }
+    .article-header__right {
+      background-color: #ff11ff
+    }
+  }
+  .article-content {
+    display: flex;
+    flex-direction: row;
+  }
 `
 
 const Articles = ({counterStore, articlesStore}) => {
   console.log("articles ", counterStore)
-  // console.log('articlesStore', articlesStore.getArticles)
-  // const goods = useStaticQuery(articlesStore.getArticles)
-  // console.log('goods date', goods)
   return (
     <>
       <Layout>
       <Seo title="welcome to my Articles show" />
       <Container >
         {/* 文章列表 */}
-        <div>
+        {[1,2,3,4].map((v, i) => (
+          <ArticlesBlock key={i}>
           {/* 标题栏 */}
-          <div>
+          <div className="article-header">
             {/* 标题栏 左*/}
-            <div>
+            <div className="article-header__left">
               <FontAwesomeIcon icon={faSteam} size="lg" />
               <span >Javascript </span>
-              {/* <span onClick={articlesStore.getArticles}>Javascript </span> */}
             </div>
             {/* 标题栏 右*/}
-            <div>
+            <div className="article-header__right">
               <span>More </span>
             </div>
           </div>
           {/* 内容 */}
-          <div>
-            <p>日期</p>
-            <p>标题头部文字</p>
-          </div>
-        </div>
+          {[1,2,3,4,5].map((item, index) => (
+            <div className="article-content" key={index}>
+              <p>日期</p>
+              <p>标题头部文字{index}</p>
+            </div>
+          ))}
+        </ArticlesBlock>
+        ))}
       </Container>
     </Layout>
-
     </>
   )
 }
 
 export default inject("counterStore", 'articlesStore')(observer(Articles))
-
-{/* <p onClick={ () => articlesStore.showMsg()} >欢迎! 来到 Articles {counterStore.Count}</p>
-<div>
-  <button onClick={() => counterStore.Increment()}>Add</button>
-  <button onClick={() => counterStore.Decrement()}>Subtract</button>
-</div> */}
