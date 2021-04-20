@@ -18,13 +18,13 @@ export const Main = () => {
 
   return (
     <>
-    {/* 头部细节存在于首页 */}
+      {/* 头部细节存在于首页 */}
       {/* <HeaderSpace /> */}
       <Container>
         {/* 热门文章 */}
         <TopArticle>
           <div className="hot-article-left">
-            <StaticImage src="../../assets/images/page1.png" width={220} quality={90}  formats={["AUTO", "WEBP", "AVIF"]}  alt="focus" />
+            <StaticImage src="../../assets/images/page1.png" width={220} quality={90} formats={["AUTO", "WEBP", "AVIF"]} alt="focus" />
           </div>
           <div className="hot-article-right">
             <h4>styled-components is the result of wondering how we could enhance CSS for styling React component systems.</h4>
@@ -35,15 +35,22 @@ export const Main = () => {
           </div>
         </TopArticle>
         {/* 图文列表 */}
-        <ArticleList>
-          <div>图片展示</div>
-          <div>
-            <h3>文字标题</h3>
-            <p>详情内容描述</p>
-            <div>
-              <p>预览</p>
+        <ArticleList >
+          {[1, 2, 3].map((v, i) => (
+            <div className="article-content" key={i}>
+              <div className="article-top">
+                <StaticImage src="../../assets/images/page2.png" width={200} quality={90} formats={["AUTO", "WEBP", "AVIF"]} alt="focus" />
+              </div>
+              <div className="article-bottom">
+                <h4>styled-components is the result of wondering how we could enhance CSS </h4>
+                <p>Apart from the improved experience for developers</p>
+                {/* <p>详情内容描述</p>
+                  <div>
+                    <p>预览</p>
+                  </div> */}
+              </div>
             </div>
-          </div>
+          ))}
         </ArticleList>
       </Container>
     </>
