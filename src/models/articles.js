@@ -8,12 +8,7 @@ class ArticlesModel {
   }
 
   async getArticles() {
-    // console.log('getJsArticles', graphql`${getJsArticles}`)
-    // const ga = await getJsArticles()
     console.log('getJsArticles' )
-    // console.log('getReactArticles', getReactArticles)
-    // return graphql`${getJsArticles}`
-    // return ga
   }
   showMsg() {
     console.log('IOC inject success!')
