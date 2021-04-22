@@ -30,7 +30,6 @@ const Detail = ({ children }) => {
           <div className="detail-header__img">
             <StaticImage src="../../assets/images/page1.png" width={220} quality={90} formats={["AUTO", "WEBP", "AVIF"]} alt="focus" />
           </div>
-          {/* <h1>{post.frontmatter.title}</h1> */}
           <h4>Because a Styled Component is the combination of the element and the rules that style it</h4>
           {/* 文章个人信息 */}
           <div>

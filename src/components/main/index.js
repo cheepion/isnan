@@ -29,9 +29,6 @@ export const Main = () => {
           <div className="hot-article-right">
             <h4>styled-components is the result of wondering how we could enhance CSS for styling React component systems.</h4>
             <p>Apart from the improved experience for developers, styled-components provides:</p>
-            {/* <div>
-              <p>Apart from the improved experience for developers, styled-components provides:</p>
-            </div> */}
           </div>
         </TopArticle>
         {/* 图文列表 */}
@@ -44,10 +41,6 @@ export const Main = () => {
               <div className="article-bottom">
                 <h4>styled-components is the result of wondering how we could enhance CSS </h4>
                 <p>Apart from the improved experience for developers</p>
-                {/* <p>详情内容描述</p>
-                  <div>
-                    <p>预览</p>
-                  </div> */}
               </div>
             </div>
           ))}
