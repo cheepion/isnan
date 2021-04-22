@@ -6,26 +6,22 @@ export const Container = styled.div`
 export const Personal = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
+  padding: 20px;
   border-radius: 12px;
   background-color: #fff;
-  margin-bottom: 20px;
 `
 export const Catalog = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 20px;
   border-radius: 10px;
   background-color: #fff;
+  p {
+    margin-left: 10px;
+  }
 `
 export const  CatalogContent = styled.div`
   display: flex;
   flex-direction: row;
-`
-export const Footer = styled.div`
-  div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    border-radius: 90
-  }
 `

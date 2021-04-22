@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { Container, Personal, Catalog, CatalogContent } from "./style"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faReact, faNodeJs, faJs, faAudible } from "@fortawesome/free-brands-svg-icons"
+import { faReact, faNodeJs, faJs, faFedora, faGithub, faYarn } from "@fortawesome/free-brands-svg-icons"
 
 export const Sidebar = () => {
   const data = useStaticQuery(graphql`
@@ -40,13 +40,15 @@ export const Sidebar = () => {
                 alt="my photo"
                 style={{ marginBottom: `1.45rem` }}
               />
-            <div>图片加描述</div>
           </div>
-          <a href="https://github.com/cheepion" style={{color: "blue"}}>contact me</a>
+          <a href="https://github.com/cheepion" style={{color: "blue"}}>
+            <FontAwesomeIcon icon={faGithub} size="lg" />
+            <FontAwesomeIcon icon={faGithub} size="lg" />
+          </a>
         </Personal>
         {/* 技术分类 */}
         <Catalog>
-          <CatalogContent>
+          <CatalogContent to="articles">
             <FontAwesomeIcon icon={faJs} size="lg" />
             <p>Javascript</p>
           </CatalogContent>
@@ -55,7 +57,7 @@ export const Sidebar = () => {
             <p>React</p>
           </CatalogContent>
           <CatalogContent>
-            <FontAwesomeIcon icon={faAudible} size="lg" />
+            <FontAwesomeIcon icon={faFedora} size="lg" />
             <p>GatsbyJS</p>
           </CatalogContent>
           <CatalogContent>
@@ -63,11 +65,6 @@ export const Sidebar = () => {
             <p>NestJS</p>
           </CatalogContent>
         </Catalog>
-        {/* 主题文章切换 */}
-        {/* <Footer>
-          <div>左边箭头</div>
-          <div>右边头箭</div>
-        </Footer> */}
       </Container>
     </>
   )

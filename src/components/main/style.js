@@ -6,7 +6,7 @@ export const Container = styled.div`
 `
 export const TopArticle = styled.div`
   display: flex;
-  width: 600px;
+  width: 620px;
   padding: 10px;
   background: #fff;
   border-radius: 8px;
