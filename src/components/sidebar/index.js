@@ -29,7 +29,7 @@ export const Sidebar = () => {
   React.useEffect(() => {
     console.log("ref", domRef)
     domRef.current.addEventListener('click', (e) => {
-      console.log('tag', e.target.getAttribute('data-md'))
+      console.log('tag', domRef.currentTarget.getAttribute('data-md'))
       if(e.target.tagName.toLowerCase() === 'div') {
         console.log('eee', e.target)
       }
