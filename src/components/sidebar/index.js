@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, forwardRef} from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, navigate } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { Container, Personal, Catalog, CatalogContent } from "./style"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -29,9 +29,24 @@ export const Sidebar = () => {
   React.useEffect(() => {
     console.log("ref", domRef)
     domRef.current.addEventListener('click', (e) => {
-      console.log('tag', domRef.currentTarget.getAttribute('data-md'))
+      console.log('tag', e.target.getAttribute('data-md'))
       if(e.target.tagName.toLowerCase() === 'div') {
-        console.log('eee', e.target)
+        switch(e.target.getAttribute('data-md')) {
+          case 'js':
+          navigate('articles', "js");
+          break;
+          case 'react':
+          navigate('articles', "react");
+          break;
+          case 'gatsbyjs':
+          navigate('articles', "gatsbyjs");
+          break;
+          case 'nodejs':
+          navigate('articles', "nodejs");
+          break;
+          default :
+          navigate('articles');
+        }
       }
     },false)
     return () => {
