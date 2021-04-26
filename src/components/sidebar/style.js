@@ -24,4 +24,5 @@ export const Catalog = styled.div`
 export const  CatalogContent = styled.div`
   display: flex;
   flex-direction: row;
+  cursor: pointer;
 `

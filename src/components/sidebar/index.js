@@ -1,65 +1,42 @@
-import React, {useEffect, useRef, forwardRef} from "react"
+import React, {useEffect} from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql, navigate } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { Container, Personal, Catalog, CatalogContent } from "./style"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faReact, faNodeJs, faJs, faFedora, faGithub, faYarn } from "@fortawesome/free-brands-svg-icons"
+import { faReact, faNodeJs, faJs, faFedora, faGithub } from "@fortawesome/free-brands-svg-icons"
 
 export const Sidebar = () => {
-  const domRef = useRef()
-  const data = useStaticQuery(graphql`
-  query MyQuery {
-    allMarkdownRemark {
-      edges {
-        node {
-          id
-          frontmatter {
-            date
-            title
+  
+  // const getMdData = (type) => {
+    // $slug: String!
+    const GetMdData =(typer) => useStaticQuery(graphql`
+    query ($typer: String!) {
+        allMarkdownRemark(filter: {frontmatter: {type: {eq: $typer} }}) {
+          edges {
+            node {
+              frontmatter {
+                date
+                icon
+                title
+                type
+              }
+            }
           }
-          excerpt
         }
       }
-      totalCount
-    }
-  }
-  `)
-  console.log('data', data)
-  React.useEffect(() => {
-    console.log("ref", domRef)
-    domRef.current.addEventListener('click', (e) => {
-      console.log('tag', e.target.getAttribute('data-md'))
-      if(e.target.tagName.toLowerCase() === 'div') {
-        switch(e.target.getAttribute('data-md')) {
-          case 'js':
-          navigate('articles', "js");
-          break;
-          case 'react':
-          navigate('articles', "react");
-          break;
-          case 'gatsbyjs':
-          navigate('articles', "gatsbyjs");
-          break;
-          case 'nodejs':
-          navigate('articles', "nodejs");
-          break;
-          default :
-          navigate('articles');
-        }
-      }
-    },false)
-    return () => {
-      domRef.current.removeEventListener("click", () => {}, false)
-    }
-  }, [])
+    `)
+    // console.log("data100", data.allMarkdownRemark.edges)
+    // return data
+  // }
+  console.log('data', GetMdData)
   return (
     <>
       <Container>
         {/* 个人简介 */}
         <Personal>
-          <div>
-            <p>Elvis</p>
+          <div onClick={() => navigate('/')}>
+            <p >简单记点东西</p>
             <StaticImage
                 src="../../assets/images/gatsby-icon.png"
                 width={60}
@@ -70,25 +47,26 @@ export const Sidebar = () => {
               />
           </div>
           <a href="https://github.com/cheepion" style={{color: "blue"}}>
-            <FontAwesomeIcon icon={faGithub} size="lg" />
-            <FontAwesomeIcon icon={faGithub} size="lg" />
+            <FontAwesomeIcon icon={faGithub} size="lg" color="#5080EC" />
+            {/* <span>Elvis github</span> */}
           </a>
         </Personal>
         {/* 技术分类 */}
-        <Catalog ref={domRef}>
-          <CatalogContent data-md='js'>
+        <Catalog >
+          <CatalogContent onClick={ () => navigate(`/articles`, {state: {typer: 'js'}})}>
+          {/* <CatalogContent onClick={ () => navigate(`/articles`, {state: {typeData: GetMdData('js')}})}> */}
             <FontAwesomeIcon icon={faJs} size="lg" />
             <p>Javascript</p>
           </CatalogContent>
-          <CatalogContent data-md='react'>
+          <CatalogContent onClick={ () => navigate("/articles", 'react')}>
             <FontAwesomeIcon icon={faReact} size="lg" />
             <p>React</p>
           </CatalogContent>
-          <CatalogContent data-md='gatsbyjs'>
+          <CatalogContent onClick={ () => navigate("/articles", 'gatsbyjs')}>
             <FontAwesomeIcon icon={faFedora} size="lg" />
             <p>GatsbyJS</p>
           </CatalogContent>
-          <CatalogContent data-md='nodejs'>
+          <CatalogContent onClick={ () => navigate("/articles", 'nodejs')}>
             <FontAwesomeIcon icon={faNodeJs} size="lg" />
             <p>NestJS</p>
           </CatalogContent>

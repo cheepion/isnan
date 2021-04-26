@@ -3,7 +3,8 @@ import PropTypes from "prop-types"
 import { inject, observer} from "mobx-react"
 import { Layout, Seo } from "../components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faSteam, faJs } from "@fortawesome/free-brands-svg-icons"
+import { faReact, faNodeJs, faJs, faFedora, faGithub } from "@fortawesome/free-brands-svg-icons"
+
 import styled from 'styled-components'
 import { useStaticQuery, graphql, Link } from "gatsby"
 
@@ -20,21 +21,25 @@ const ArticlesBlock = styled.div`
     flex-direction: row;
     justify-content: space-between;
     width: 600px;
+    background-color: #5080ec;
+    color: #fff;
     .article-header__left {
-      background-color: #ff2211
+      /* background-color: #ff2211 */
     }
     .article-header__right {
-      background-color: #ff11ff
+      /* background-color: #ff11ff */
     }
   }
   .article-content {
     display: flex;
     flex-direction: row;
+    background-color: #fff;
   }
 `
 
-const Articles = ({counterStore, articlesStore}) => {
-  console.log("articles ", counterStore)
+const Articles = (setop) => {
+// const Articles = ({counterStore, articlesStore}) => {
+  console.log("setop", setop)
   return (
     <>
       <Layout>
@@ -47,7 +52,7 @@ const Articles = ({counterStore, articlesStore}) => {
           <div className="article-header">
             {/* 标题栏 左*/}
             <div className="article-header__left">
-              <FontAwesomeIcon icon={faSteam} size="lg" />
+              <FontAwesomeIcon icon={faReact} size="lg" />
               <span >Javascript </span>
             </div>
             {/* 标题栏 右*/}

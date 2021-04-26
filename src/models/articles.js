@@ -6,9 +6,8 @@ class ArticlesModel {
   constructor() {
     makeAutoObservable(this)
   }
-
-  async getArticles() {
-    console.log('getJsArticles' )
+  getAllArticles() {
+    console.log('全文章')
   }
   showMsg() {
     console.log('IOC inject success!')
