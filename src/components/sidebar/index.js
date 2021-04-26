@@ -8,11 +8,9 @@ import { faReact, faNodeJs, faJs, faFedora, faGithub } from "@fortawesome/free-b
 
 export const Sidebar = () => {
   
-  // const getMdData = (type) => {
-    // $slug: String!
-    const GetMdData =(typer) => useStaticQuery(graphql`
-    query ($typer: String!) {
-        allMarkdownRemark(filter: {frontmatter: {type: {eq: $typer} }}) {
+  const data =  useStaticQuery(graphql`
+    query {
+        allMarkdownRemark {
           edges {
             node {
               frontmatter {
@@ -26,10 +24,8 @@ export const Sidebar = () => {
         }
       }
     `)
-    // console.log("data100", data.allMarkdownRemark.edges)
-    // return data
-  // }
-  console.log('data', GetMdData)
+    console.log("data100", data.allMarkdownRemark.edges)
+  const getMeData = (typer) => data.allMarkdownRemark.edges.filter(({node}) => node.frontmatter.type == typer)
   return (
     <>
       <Container>
@@ -48,25 +44,23 @@ export const Sidebar = () => {
           </div>
           <a href="https://github.com/cheepion" style={{color: "blue"}}>
             <FontAwesomeIcon icon={faGithub} size="lg" color="#5080EC" />
-            {/* <span>Elvis github</span> */}
           </a>
         </Personal>
         {/* 技术分类 */}
         <Catalog >
-          <CatalogContent onClick={ () => navigate(`/articles`, {state: {typer: 'js'}})}>
-          {/* <CatalogContent onClick={ () => navigate(`/articles`, {state: {typeData: GetMdData('js')}})}> */}
+          <CatalogContent onClick={ () => navigate(`/articles`, {state: {typer: getMeData('js') }})}>\
             <FontAwesomeIcon icon={faJs} size="lg" />
             <p>Javascript</p>
           </CatalogContent>
-          <CatalogContent onClick={ () => navigate("/articles", 'react')}>
+          <CatalogContent onClick={ () => navigate(`/articles`, {state: {typer: getMeData('react') }})}>
             <FontAwesomeIcon icon={faReact} size="lg" />
             <p>React</p>
           </CatalogContent>
-          <CatalogContent onClick={ () => navigate("/articles", 'gatsbyjs')}>
+          <CatalogContent onClick={ () => navigate(`/articles`, {state: {typer: getMeData('gatsbyjs') }})}>
             <FontAwesomeIcon icon={faFedora} size="lg" />
             <p>GatsbyJS</p>
           </CatalogContent>
-          <CatalogContent onClick={ () => navigate("/articles", 'nodejs')}>
+          <CatalogContent onClick={ () => navigate(`/articles`, {state: {typer: getMeData('nodejs') }})}>
             <FontAwesomeIcon icon={faNodeJs} size="lg" />
             <p>NestJS</p>
           </CatalogContent>
