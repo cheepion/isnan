@@ -48,7 +48,7 @@ export const Sidebar = () => {
         </Personal>
         {/* 技术分类 */}
         <Catalog >
-          <CatalogContent onClick={ () => navigate(`/articles`, {state: {typer: getMeData('js') }})}>\
+          <CatalogContent onClick={ () => navigate(`/articles`, {state: {typer: getMeData('js') }})}>
             <FontAwesomeIcon icon={faJs} size="lg" />
             <p>Javascript</p>
           </CatalogContent>

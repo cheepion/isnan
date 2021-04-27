@@ -21,12 +21,15 @@ export const TopArticle = styled.div`
     width: 360px;
     h4 {
       color: #2F3035;
-      padding: 10;
+      padding: 10px;
+      margin-bottom: 0;
     }
     p {
       color: #677F8E;
       font-size: 14px;
-      padding: 10;
+      padding: 8px;
+      margin-bottom: 4px;
+      line-height: 1.3;
     }
   }
 `
@@ -52,12 +55,16 @@ export const ArticleList = styled.div`
   .article-bottom {
     h4 {
       color: #2F3035;
-      padding: 10;
+      padding: 6px;
+      margin-bottom: 0;
+      font-size: 15px;
     }
     p {
       color: #677F8E;
-      font-size: 14px;
-      padding: 10;
+      font-size: 13px;
+      padding: 6px;
+      margin-bottom: 4px;
+      line-height: 1.3;
     }
   }
   }
