@@ -31,20 +31,22 @@ export const Sidebar = () => {
       <Container>
         {/* 个人简介 */}
         <Personal>
-          <div onClick={() => navigate('/')}>
-            <p >简单记点东西</p>
+          <div onClick={() => navigate('/')} style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <div style={{position: 'absolute', left: "10px"}}>
+              {/* <label>恐龙让梨</label> */}
+              {/* <a href="https://github.com/cheepion" style={{color: "blue"}}>
+                <FontAwesomeIcon icon={faGithub} size="lg" color="#5080EC" />
+              </a> */}
+            </div>
             <StaticImage
-                src="../../assets/images/gatsby-icon.png"
-                width={60}
+                src="../../assets/images/pro.jpg"
+                width={110}
                 quality={95}
                 formats={["AUTO", "WEBP", "AVIF"]}
                 alt="my photo"
-                style={{ marginBottom: `1.45rem` }}
+                style={{ marginBottom: `1rem` }}
               />
           </div>
-          <a href="https://github.com/cheepion" style={{color: "blue"}}>
-            <FontAwesomeIcon icon={faGithub} size="lg" color="#5080EC" />
-          </a>
         </Personal>
         {/* 技术分类 */}
         <Catalog >

@@ -7,11 +7,12 @@ export const Personal = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
   background-color: #fff;
 `
 export const Catalog = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 20px;
