@@ -1,10 +1,9 @@
-import React, {useEffect} from "react"
-import PropTypes from "prop-types"
+import React from "react"
 import { useStaticQuery, graphql, navigate } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { Container, Personal, Catalog, CatalogContent } from "./style"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faReact, faNodeJs, faJs, faFedora, faGithub } from "@fortawesome/free-brands-svg-icons"
+import { faReact, faNodeJs, faJs, faFedora } from "@fortawesome/free-brands-svg-icons"
 
 export const Sidebar = () => {
   
@@ -19,19 +18,20 @@ export const Sidebar = () => {
                 title
                 type
               }
+              excerpt
             }
           }
         }
       }
     `)
     console.log("data100", data.allMarkdownRemark.edges)
-  const getMeData = (typer) => data.allMarkdownRemark.edges.filter(({node}) => node.frontmatter.type == typer)
+  const getMeData = (typer) => data.allMarkdownRemark.edges.filter(({node}) => node.frontmatter.type === typer)
   return (
     <>
       <Container>
         {/* 个人简介 */}
         <Personal>
-          <div onClick={() => navigate('/')} style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <div onClick ={() => navigate('/')} style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} aria-hidden="true">
             <div style={{position: 'absolute', left: "10px"}}>
               {/* <label>恐龙让梨</label> */}
               {/* <a href="https://github.com/cheepion" style={{color: "blue"}}>
@@ -54,15 +54,15 @@ export const Sidebar = () => {
             <FontAwesomeIcon icon={faJs} size="lg" />
             <p>Javascript</p>
           </CatalogContent>
-          <CatalogContent onClick={ () => navigate(`/articles`, {state: {typer: getMeData('react') }})}>
+          <CatalogContent onClick ={ () => navigate(`/articles`, {state: {typer: getMeData('react') }})}>
             <FontAwesomeIcon icon={faReact} size="lg" />
             <p>React</p>
           </CatalogContent>
-          <CatalogContent onClick={ () => navigate(`/articles`, {state: {typer: getMeData('gatsbyjs') }})}>
+          <CatalogContent onClick ={ () => navigate(`/articles`, {state: {typer: getMeData('gatsbyjs') }})}>
             <FontAwesomeIcon icon={faFedora} size="lg" />
             <p>GatsbyJS</p>
           </CatalogContent>
-          <CatalogContent onClick={ () => navigate(`/articles`, {state: {typer: getMeData('nodejs') }})}>
+          <CatalogContent onClick ={ () => navigate(`/articles`, {state: {typer: getMeData('nodejs') }})}>
             <FontAwesomeIcon icon={faNodeJs} size="lg" />
             <p>NestJS</p>
           </CatalogContent>

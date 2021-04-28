@@ -1,6 +1,4 @@
 import { makeAutoObservable } from "mobx"
-import { useStaticQuery, graphql } from "gatsby"
-// import {getJsArticles} from '../api/request'
 
 class ArticlesModel {
   constructor() {

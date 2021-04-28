@@ -1,6 +1,4 @@
 import * as React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { Layout, Seo } from "../components"
 import styled from 'styled-components'
@@ -34,23 +32,7 @@ const Content = styled.div`
 
 const Detail = (props) => {
   console.log(' props输出', props)
-  const articleData =  useStaticQuery(graphql`
-  query {
-      allMarkdownRemark {
-        edges {
-          node {
-            frontmatter {
-              date
-              icon
-              title
-              type
-            }
-          }
-        }
-      }
-    }
-  `)
-
+  const articleData = props.location.state || ""
   return (
     <>
     <Layout>
@@ -61,15 +43,14 @@ const Detail = (props) => {
             <StaticImage src="../assets/images/mobx-write.png" width={520} quality={80} formats={["AUTO", "WEBP", "AVIF"]} alt="focus" />
           </div>
           <div className="detail-content">
-            <h4>Because a Styled Component is the combination of the element and the rules that style it</h4>
+            <h4>{articleData && articleData.data.frontmatter.title}</h4>
             {/* 文章个人信息 */}
             <div>
-              <span>头像和日期</span>
+              <span>{articleData && articleData.data.frontmatter.date}</span>
             </div>
             {/* 文章内容 */}
-            <div>
-              <div>结论说明</div>
-              <div>详细文章展示</div>
+            <div className="section">
+              {articleData && articleData.data.excerpt}
             </div>
           </div>
         </Content>

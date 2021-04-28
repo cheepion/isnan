@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Layout, Main, Sidebar, Seo, Articles, Detail } from "../components"
+import { Layout, Main, Seo } from "../components"
 import { Link } from 'gatsby'
 
 const IndexPage = () => {

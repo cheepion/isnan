@@ -7,13 +7,11 @@ import "./layout.css"
 export const Layout = ({ children }) => (
   <>
     <HeaderSpace />
-    
     <Container>
-
       <Sidebar />
       <main>{children}</main>
-      {/* <Footer /> */}
     </Container>
+    <Footer />
   </>
 )
 

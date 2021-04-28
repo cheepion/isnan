@@ -3,6 +3,8 @@ import { Provider } from "mobx-react"
 import store from "./src/models"
 
 // eslint-disable-next-line react/display-name,react/prop-types
-export default ({ element }) => (
+const mobxProvider = ({ element }) => (
   <Provider {...store}>{element}</Provider>
 )
+
+export default mobxProvider
