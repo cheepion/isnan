@@ -17,14 +17,20 @@ export const Sidebar = () => {
                 icon
                 title
                 type
+                headImg
               }
-              excerpt
+              html
+              children {
+                ... on ImageSharp {
+                  gatsbyImageData(width: 200)
+                }
+              }
             }
           }
         }
       }
     `)
-    console.log("data100", data.allMarkdownRemark.edges)
+    // console.log("data100", data.allMarkdownRemark.edges)
   const getMeData = (typer) => data.allMarkdownRemark.edges.filter(({node}) => node.frontmatter.type === typer)
   return (
     <>

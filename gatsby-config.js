@@ -82,7 +82,19 @@ module.exports = {
         // displayName: false
       },
     },
-    // md插件
-    `gatsby-transformer-remark`,
+    {
+      // md插件
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-highlight-code`,
+            options: {
+              theme: "one-light"
+            }
+          },
+        ],
+      },
+    }
   ],
 }

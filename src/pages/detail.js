@@ -1,5 +1,6 @@
 import * as React from "react"
-import { StaticImage } from "gatsby-plugin-image"
+// StaticImage
+import { getImage, StaticImage, GatsbyImage } from "gatsby-plugin-image"
 import { Layout, Seo } from "../components"
 import styled from 'styled-components'
 
@@ -32,7 +33,31 @@ const Content = styled.div`
 
 const Detail = (props) => {
   console.log(' props输出', props)
+  const [img, setImg] = React.useState("../assets/images/mobx-write.png")
   const articleData = props.location.state || ""
+  // let mmg = getImage(articleData.data.frontmatter.headImg)
+  // console.log('图片输出1', mmg)
+  // 加载代码高亮
+  React.useEffect( () => {
+    async function inHighCodeShow() {
+      try {
+        const deckdeckgoHighlightCodeLoader = require("@deckdeckgo/highlight-code/dist/loader")
+        await deckdeckgoHighlightCodeLoader.defineCustomElements(window);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    inHighCodeShow()
+  }, [])
+  // 取不同文章里的图片值
+  React.useEffect( () => {
+    async function waitForImg() {
+      await setImg(articleData.data.frontmatter.headImg)
+    }
+    waitForImg()
+    console.log('444444', img)
+  }, [])
+  
   return (
     <>
     <Layout>
@@ -40,17 +65,19 @@ const Detail = (props) => {
       <Container>
         <Content>
           <div className="detail-header__img">
-            <StaticImage src="../assets/images/mobx-write.png" width={520} quality={80} formats={["AUTO", "WEBP", "AVIF"]} alt="focus" />
+            {/* { articleData && <StaticImage src={articleData.data.frontmatter.headImg} width={520} quality={80} formats={["AUTO", "WEBP", "AVIF"]} alt="focus" />} */}
+            {/* <StaticImage src={img} width={520} quality={80} formats={["AUTO", "WEBP", "AVIF"]} alt="focus" /> */}
+            {/* <GatsbyImage image={img} alt="focus" /> */}
           </div>
           <div className="detail-content">
-            <h4>{articleData && articleData.data.frontmatter.title}</h4>
+            <h3 style={{textAlign: 'center'}}>{articleData && articleData.data.frontmatter.title}</h3>
             {/* 文章个人信息 */}
             <div>
-              <span>{articleData && articleData.data.frontmatter.date}</span>
+              <p>{articleData && articleData.data.frontmatter.date}</p>
             </div>
             {/* 文章内容 */}
             <div className="section">
-              {articleData && articleData.data.excerpt}
+            <div dangerouslySetInnerHTML = {{ __html: articleData && articleData.data.html}}></div>
             </div>
           </div>
         </Content>
