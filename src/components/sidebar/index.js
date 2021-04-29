@@ -30,7 +30,6 @@ export const Sidebar = () => {
         }
       }
     `)
-    // console.log("data100", data.allMarkdownRemark.edges)
   const getMeData = (typer) => data.allMarkdownRemark.edges.filter(({node}) => node.frontmatter.type === typer)
   return (
     <>

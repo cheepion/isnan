@@ -1,8 +1,8 @@
-import { counterStore } from './counter'
+import { detailStore } from './detail'
 import { articlesStore } from './articles'
 
 const MobxStore = {
-  counterStore,
+  detailStore,
   articlesStore
 }
 

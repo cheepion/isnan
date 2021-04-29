@@ -1,16 +1,16 @@
 import { makeAutoObservable } from "mobx"
-class CountModel {
+class DetailModel {
   constructor() {
     makeAutoObservable(this)
   }
   Count = 0
 
-  Increment() {
+  singleArticle() {
     this.Count += 1
   }
 
-  Decrement() {
+  showIcon() {
     this.Count -= 1
   }
 }
-export const counterStore = new CountModel()
+export const detailStore = new DetailModel()
