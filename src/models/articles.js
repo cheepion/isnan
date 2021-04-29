@@ -5,7 +5,7 @@ class ArticlesModel {
     makeAutoObservable(this)
   }
   getAllArticles() {
-    console.log('全文章')
+    console.log('test linux')
   }
   showMsg() {
     console.log('IOC inject success!')
