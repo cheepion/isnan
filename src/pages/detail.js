@@ -35,8 +35,6 @@ const Detail = (props) => {
   console.log(' props输出', props)
   const [img, setImg] = React.useState("../assets/images/mobx-write.png")
   const articleData = props.location.state || ""
-  // let mmg = getImage(articleData.data.frontmatter.headImg)
-  // console.log('图片输出1', mmg)
   // 加载代码高亮
   React.useEffect( () => {
     async function inHighCodeShow() {
