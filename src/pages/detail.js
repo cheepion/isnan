@@ -3,6 +3,7 @@ import * as React from "react"
 import { getImage, StaticImage, GatsbyImage } from "gatsby-plugin-image"
 import { Layout, Seo } from "../components"
 import styled from 'styled-components'
+import Image from '../utils/Image'
 
 const Container = styled.div`
   width: 740px;
@@ -20,11 +21,16 @@ const Content = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 10px;
+    img {
+      width: 100%;
+      padding: 20px;
+      border-radius: 30px;
+    }
   }
   .detail-content {
     z-index: 10;
     width: 660px;
-    margin-top: -10px;
+    margin-top: -300px;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
@@ -33,7 +39,6 @@ const Content = styled.div`
 
 const Detail = (props) => {
   console.log(' props输出', props)
-  const [img, setImg] = React.useState("../assets/images/mobx-write.png")
   const articleData = props.location.state || ""
   // 加载代码高亮
   React.useEffect( () => {
@@ -47,14 +52,6 @@ const Detail = (props) => {
     }
     inHighCodeShow()
   }, [])
-  // 取不同文章里的图片值
-  React.useEffect( () => {
-    async function waitForImg() {
-      await setImg(articleData.data.frontmatter.headImg)
-    }
-    waitForImg()
-    console.log('444444', img)
-  }, [])
   
   return (
     <>
@@ -63,9 +60,7 @@ const Detail = (props) => {
       <Container>
         <Content>
           <div className="detail-header__img">
-            {/* { articleData && <StaticImage src={articleData.data.frontmatter.headImg} width={520} quality={80} formats={["AUTO", "WEBP", "AVIF"]} alt="focus" />} */}
-            {/* <StaticImage src={img} width={520} quality={80} formats={["AUTO", "WEBP", "AVIF"]} alt="focus" /> */}
-            {/* <GatsbyImage image={img} alt="focus" /> */}
+            <img src={articleData.data.frontmatter.headImg} />
           </div>
           <div className="detail-content">
             <h3 style={{textAlign: 'center'}}>{articleData && articleData.data.frontmatter.title}</h3>

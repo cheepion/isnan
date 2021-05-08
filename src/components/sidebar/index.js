@@ -20,11 +20,6 @@ export const Sidebar = () => {
                 headImg
               }
               html
-              children {
-                ... on ImageSharp {
-                  gatsbyImageData(width: 200)
-                }
-              }
             }
           }
         }
@@ -44,13 +39,13 @@ export const Sidebar = () => {
               </a> */}
             </div>
             <StaticImage
-                src="../../assets/images/pro.jpg"
-                width={110}
-                quality={95}
-                formats={["AUTO", "WEBP", "AVIF"]}
-                alt="my photo"
-                style={{ marginBottom: `1rem` }}
-              />
+              src="../../assets/images/pro.jpg"
+              width={110}
+              quality={95}
+              formats={["AUTO", "WEBP", "AVIF"]}
+              alt="my photo"
+              style={{ marginBottom: `1rem` }}
+            />
           </div>
         </Personal>
         {/* 技术分类 */}

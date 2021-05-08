@@ -19,6 +19,7 @@ export const TopArticle = styled.div`
     display: flex;
     flex-direction: column;
     width: 360px;
+    cursor: pointer;
     h4 {
       color: #2F3035;
       padding: 10px;
@@ -47,6 +48,7 @@ export const ArticleList = styled.div`
     background: #fff;
     border-radius: 8px;
     box-shadow: 1px 2px 10px #ccc;
+    cursor: pointer;
     .article-top {
       display: flex;
       justify-content: center;
