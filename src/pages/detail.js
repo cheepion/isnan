@@ -1,9 +1,7 @@
 import * as React from "react"
-// StaticImage
-import { getImage, StaticImage, GatsbyImage } from "gatsby-plugin-image"
 import { Layout, Seo } from "../components"
 import styled from 'styled-components'
-import Image from '../utils/Image'
+import { useLocation } from "@reach/router"
 
 const Container = styled.div`
   width: 740px;
@@ -23,22 +21,23 @@ const Content = styled.div`
     margin-top: 10px;
     img {
       width: 100%;
-      padding: 20px;
+      padding: 10px 20px;
       border-radius: 30px;
     }
   }
   .detail-content {
-    z-index: 10;
     width: 660px;
     margin-top: -300px;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
+    opacity: 0.9;
   }
 `
 
 const Detail = (props) => {
   console.log(' props输出', props)
+  console.log(' useLocation', useLocation)
   const articleData = props.location.state || ""
   // 加载代码高亮
   React.useEffect( () => {
@@ -56,15 +55,16 @@ const Detail = (props) => {
   return (
     <>
     <Layout>
-      <Seo title="welcome to my Article detail show" />
+      <Seo title="welcome to my Articles which a detail show" />
       <Container>
         <Content>
+          {/* 顶部图片 */}
           <div className="detail-header__img">
             <img src={articleData.data.frontmatter.headImg} />
           </div>
           <div className="detail-content">
             <h3 style={{textAlign: 'center'}}>{articleData && articleData.data.frontmatter.title}</h3>
-            {/* 文章个人信息 */}
+            {/* 文章日期 */}
             <div>
               <p>{articleData && articleData.data.frontmatter.date}</p>
             </div>

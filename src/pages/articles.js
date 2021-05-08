@@ -3,6 +3,10 @@ import { inject, observer} from "mobx-react"
 import { Layout, Seo } from "../components"
 import styled from 'styled-components'
 import {  navigate } from "gatsby"
+// import {
+//   createMemorySource,
+//   createHistory
+// } from "@reach/router"
 
 // wrap Container
 const Container = styled.div`
@@ -60,6 +64,13 @@ const Articles = (catalog) => {
   const goArticleDetail = (article) => {
     navigate('/detail/', {state: { data: article}})
   }
+
+  //   // listen to the browser history
+  // let history = createHistory(window)
+
+  // // for some types of tests you want a memory source
+  // let source = createMemorySource("/articles")
+  // let history = createHistory(source)
 
   return (
     <>
