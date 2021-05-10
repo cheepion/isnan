@@ -1,7 +1,55 @@
 import * as React from "react"
 import { Layout, Seo } from "../components"
 import styled from 'styled-components'
-import { useLocation } from "@reach/router"
+
+const Detail = (props) => {
+  const articleData = props.location.state || ""
+  const route = props.path
+  console.log('默认值', props)
+  if(route !== "/") window.location.href='/'
+
+  // 加载代码高亮
+  React.useEffect( () => {
+    async function inHighCodeShow() {
+      try {
+        const deckdeckgoHighlightCodeLoader = require("@deckdeckgo/highlight-code/dist/loader")
+        await deckdeckgoHighlightCodeLoader.defineCustomElements(window);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    inHighCodeShow()
+  }, [])
+  
+  return (
+    <>
+      <Layout>
+        <Seo title="welcome to my Articles which a detail show" />
+        <Container>
+          <Content>
+            {/* 顶部图片 */}
+            <div className="detail-header__img">
+              <img src={articleData && articleData.data.frontmatter.headImg} />
+            </div>
+            <div className="detail-content">
+              <h3 style={{textAlign: 'center'}}>{articleData && articleData.data.frontmatter.title}</h3>
+              {/* 文章日期 */}
+              <div>
+                <p>{articleData && articleData.data.frontmatter.date}</p>
+              </div>
+              {/* 文章内容 */}
+              <div className="section">
+              <div dangerouslySetInnerHTML = {{ __html: articleData && articleData.data.html}}></div>
+              </div>
+            </div>
+          </Content>
+        </Container>
+      </Layout>
+    </>
+  )
+}
+
+export default Detail
 
 const Container = styled.div`
   width: 740px;
@@ -34,50 +82,3 @@ const Content = styled.div`
     opacity: 0.9;
   }
 `
-
-const Detail = (props) => {
-  console.log(' props输出', props)
-  console.log(' useLocation', useLocation)
-  const articleData = props.location.state || ""
-  // 加载代码高亮
-  React.useEffect( () => {
-    async function inHighCodeShow() {
-      try {
-        const deckdeckgoHighlightCodeLoader = require("@deckdeckgo/highlight-code/dist/loader")
-        await deckdeckgoHighlightCodeLoader.defineCustomElements(window);
-      } catch (err) {
-        console.error(err);
-      }
-    }
-    inHighCodeShow()
-  }, [])
-  
-  return (
-    <>
-    <Layout>
-      <Seo title="welcome to my Articles which a detail show" />
-      <Container>
-        <Content>
-          {/* 顶部图片 */}
-          <div className="detail-header__img">
-            <img src={articleData.data.frontmatter.headImg} />
-          </div>
-          <div className="detail-content">
-            <h3 style={{textAlign: 'center'}}>{articleData && articleData.data.frontmatter.title}</h3>
-            {/* 文章日期 */}
-            <div>
-              <p>{articleData && articleData.data.frontmatter.date}</p>
-            </div>
-            {/* 文章内容 */}
-            <div className="section">
-            <div dangerouslySetInnerHTML = {{ __html: articleData && articleData.data.html}}></div>
-            </div>
-          </div>
-        </Content>
-      </Container>
-    </Layout>
-    </>
-  )
-}
-
-export default Detail

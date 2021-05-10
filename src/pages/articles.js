@@ -3,10 +3,6 @@ import { inject, observer} from "mobx-react"
 import { Layout, Seo } from "../components"
 import styled from 'styled-components'
 import {  navigate } from "gatsby"
-// import {
-//   createMemorySource,
-//   createHistory
-// } from "@reach/router"
 
 // wrap Container
 const Container = styled.div`
@@ -55,22 +51,12 @@ const Articles = (catalog) => {
 
   const [itemData, setData] = React.useState([])
   console.log("catalog", catalog)
-
-  React.useEffect(() => {
-    if(!catalog.location.state.typer) navigate('/')
-    setData(catalog.location.state.typer)
-  }, [catalog.location.state])
+  const articlelist = catalog.location.state || ""
+  if(!articlelist) window.location.href='/'
 
   const goArticleDetail = (article) => {
     navigate('/detail/', {state: { data: article}})
   }
-
-  //   // listen to the browser history
-  // let history = createHistory(window)
-
-  // // for some types of tests you want a memory source
-  // let source = createMemorySource("/articles")
-  // let history = createHistory(source)
 
   return (
     <>
@@ -85,7 +71,7 @@ const Articles = (catalog) => {
               <span>{ itemData.length && itemData[0].node.frontmatter.type} </span>
             </div>
             <div className="article-header__right">
-              <span>More </span>
+              <span>More</span>
             </div>
           </div>
           {/* 内容 */}
@@ -105,4 +91,4 @@ const Articles = (catalog) => {
   )
 }
 
-export default inject("counterStore", 'articlesStore')(observer(Articles))
+export default inject('articlesStore')(observer(Articles))
