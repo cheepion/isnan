@@ -4,10 +4,7 @@ import styled from 'styled-components'
 
 const Detail = (props) => {
   const articleData = props.location.state || ""
-  const route = props.path
-  console.log('默认值', props)
-  if(route !== "/") window.location.href='/'
-
+  // console.log('默认值', props)
   // 加载代码高亮
   React.useEffect( () => {
     async function inHighCodeShow() {
@@ -26,23 +23,27 @@ const Detail = (props) => {
       <Layout>
         <Seo title="welcome to my Articles which a detail show" />
         <Container>
-          <Content>
-            {/* 顶部图片 */}
-            <div className="detail-header__img">
-              <img src={articleData && articleData.data.frontmatter.headImg} />
-            </div>
-            <div className="detail-content">
-              <h3 style={{textAlign: 'center'}}>{articleData && articleData.data.frontmatter.title}</h3>
-              {/* 文章日期 */}
-              <div>
-                <p>{articleData && articleData.data.frontmatter.date}</p>
-              </div>
-              {/* 文章内容 */}
-              <div className="section">
-              <div dangerouslySetInnerHTML = {{ __html: articleData && articleData.data.html}}></div>
-              </div>
-            </div>
-          </Content>
+          {
+            articleData
+            ?  <Content>
+                {/* 顶部图片 */}
+                <div className="detail-header__img">
+                  <img src={articleData && articleData.data.frontmatter.headImg} alt="内容精简图"/>
+                </div>
+                <div className="detail-content">
+                  <h3 style={{textAlign: 'center'}}>{articleData && articleData.data.frontmatter.title}</h3>
+                  {/* 文章日期 */}
+                  <div>
+                    <p>{articleData && articleData.data.frontmatter.date}</p>
+                  </div>
+                  {/* 文章内容 */}
+                  <div className="section">
+                  <div dangerouslySetInnerHTML = {{ __html: articleData && articleData.data.html}}></div>
+                  </div>
+                </div>
+              </Content>
+            : <Content><p style={{marginTop: "1.2rem", color: 'yellowgreen'}}>喜提鸭蛋, 但没鸭喜!</p></Content>
+          }
         </Container>
       </Layout>
     </>

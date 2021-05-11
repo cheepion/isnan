@@ -1,7 +1,7 @@
 // If you don't want to use TypeScript you can delete this file!
 import * as React from "react"
 import { PageProps, Link, graphql } from "gatsby"
-
+// import PropTypes from "prop-types"
 import {Layout, Seo} from "../components"
 
 type DataProps = {

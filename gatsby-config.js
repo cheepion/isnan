@@ -2,9 +2,9 @@
 
 module.exports = {
   siteMetadata: {
-    title: `查询头`,
-    description: `测试数据111111111111`,
-    author: `@测试数据321`,
+    title: `Elvis-blog`,
+    description: `读博客文章, 写点心得`,
+    author: `@Elvis`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

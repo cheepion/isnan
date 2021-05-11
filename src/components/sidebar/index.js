@@ -33,10 +33,6 @@ export const Sidebar = () => {
         <Personal>
           <div onClick ={() => navigate('/')} style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} aria-hidden="true">
             <div style={{position: 'absolute', left: "10px"}}>
-              {/* <label>恐龙让梨</label> */}
-              {/* <a href="https://github.com/cheepion" style={{color: "blue"}}>
-                <FontAwesomeIcon icon={faGithub} size="lg" color="#5080EC" />
-              </a> */}
             </div>
             <StaticImage
               src="../../assets/images/pro.jpg"
