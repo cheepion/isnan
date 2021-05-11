@@ -8,8 +8,8 @@ const IndexPage = () => {
       <Layout>
         <Seo title="Home" />
         <Router>
-        <Main path="/" />
-        <NotFound default />
+          <Main path="/" />
+          <NotFound default />
       </Router>
     </Layout>
     )

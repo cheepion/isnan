@@ -49,10 +49,8 @@ const ArticlesBlock = styled.div`
 
 const Articles = (catalog) => {
 
-  const [itemData, setData] = React.useState([])
   // console.log("catalog", catalog)
   const articlelist = catalog.location.state || ""
-  if(articlelist) setData(catalog.location.state.typer)
 
   const goArticleDetail = (article) => {
     navigate('/detail/', {state: { data: article}})
@@ -70,16 +68,16 @@ const Articles = (catalog) => {
               {/* 标题栏 */}
               <div className="article-header">
                 <div className="article-header__left">
-                  <span>{articlelist && itemData[0].node.frontmatter.type} </span>
+                  <span>{articlelist && articlelist.typer[0].node.frontmatter.type} </span>
                 </div>
                 <div className="article-header__right">
                   <span>More</span>
                 </div>
               </div>
               {/* 内容 */}
-              {articlelist && itemData.map(({node}, index) => (
+              {articlelist && articlelist.typer.map(({node}, index) => (
                 <div className="article-content" key={index} aria-hidden="true"
-                  style={index === itemData.length-1 ? {paddingBottom: "10px"} : null} 
+                  style={index === articlelist.typer.length-1 ? {paddingBottom: "10px"} : null} 
                   onClick={() => goArticleDetail(node)}
                 >
                   <label style={{fontWeight: 'bold', marginRight: '8px'}}>{node.frontmatter.date}</label>
@@ -87,7 +85,7 @@ const Articles = (catalog) => {
                 </div>
               ))}
             </ArticlesBlock>
-          : <ArticlesBlock><p style={{marginTop: "1.2rem", color: 'yellowgreen'}}>喜提鸭蛋, 但没鸭喜!</p></ArticlesBlock>
+          : <ArticlesBlock><p style={{marginTop: "1.2rem", color: 'yellowgreen', backgroundColor: '#fff', padding: 6}}>喜提鸭蛋, 但没鸭喜!</p></ArticlesBlock>
         }
       </Container>
     </Layout>

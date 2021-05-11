@@ -42,7 +42,7 @@ const Detail = (props) => {
                   </div>
                 </div>
               </Content>
-            : <Content><p style={{marginTop: "1.2rem", color: 'yellowgreen'}}>喜提鸭蛋, 但没鸭喜!</p></Content>
+            : <Content><p style={{marginTop: "1.2rem", color: 'yellowgreen', backgroundColor: '#fff', padding: 6}}>喜提鸭蛋, 但没鸭喜!</p></Content>
           }
         </Container>
       </Layout>
