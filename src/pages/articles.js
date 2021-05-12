@@ -33,17 +33,25 @@ const ArticlesBlock = styled.div`
   .article-content {
     display: flex;
     flex-direction: row;
-    padding: 6px 16px 0px;
+    padding: 8px 16px 0px;
     background-color: #fff;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
     overflow: hidden;
+    .articleDate {
+      font-family: sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      margin-right: 8px;
+    }
     :hover {
       color: #5080ec;
     }
     label {
       cursor: pointer;
     }
+  }
+  .article-content:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 `
 
@@ -80,7 +88,7 @@ const Articles = (catalog) => {
                   style={index === articlelist.typer.length-1 ? {paddingBottom: "10px"} : null} 
                   onClick={() => goArticleDetail(node)}
                 >
-                  <label style={{fontWeight: 'bold', marginRight: '8px'}}>{node.frontmatter.date}</label>
+                  <label className="articleDate">{node.frontmatter.date}</label>
                   <label>{node.frontmatter.title}</label>
                 </div>
               ))}

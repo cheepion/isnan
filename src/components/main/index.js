@@ -8,7 +8,10 @@ export const Main = () => {
 
   const data =  useStaticQuery(graphql`
     query title {
-      allMarkdownRemark(filter: {frontmatter: {type: {eq: "react"}}}) {
+      allMarkdownRemark(
+        filter: {frontmatter: {type: {eq: "react"}}}
+        sort: {fields: frontmatter___date, order: DESC}
+      ) {
         edges {
           node {
             frontmatter {

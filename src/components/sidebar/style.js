@@ -10,6 +10,38 @@ export const Personal = styled.div`
   padding: 10px;
   border-radius: 12px;
   background-color: #fff;
+  .person-img {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .inline-img {
+      border-radius: 100%;
+      cursor: pointer;
+      :hover {
+        border: 1px solid #eee;
+        animation: roll 5s 2;
+        animation-direction: alternate;
+        opacity: .8;
+        @keyframes roll {
+          0% {
+            transform: rotate(360deg);
+          }
+          100% {
+            transform: rotate(0);
+          }
+        }
+      }
+    }
+  .git-icon {
+      position: absolute;
+      top: 84px;
+      right: 13px;
+      cursor: pointer;
+    }
+  }
+
+
 `
 export const Catalog = styled.div`
   position: relative;

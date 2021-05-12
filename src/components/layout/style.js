@@ -10,6 +10,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
 `
+
 export const Footer = styled.footer`
   margin-top: 2rem;
 `

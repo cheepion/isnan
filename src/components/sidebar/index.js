@@ -3,13 +3,14 @@ import { useStaticQuery, graphql, navigate } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { Container, Personal, Catalog, CatalogContent } from "./style"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faReact, faNodeJs, faJs, faFedora } from "@fortawesome/free-brands-svg-icons"
+import { faReact, faNodeJs, faJs, faFedora, faGithub } from "@fortawesome/free-brands-svg-icons"
+import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 
 export const Sidebar = () => {
   
   const data =  useStaticQuery(graphql`
     query {
-        allMarkdownRemark {
+        allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
           edges {
             node {
               frontmatter {
@@ -26,26 +27,29 @@ export const Sidebar = () => {
       }
     `)
   const getMeData = (typer) => data.allMarkdownRemark.edges.filter(({node}) => node.frontmatter.type === typer)
+  const breakpoints = useBreakpoint();
   return (
     <>
       <Container>
         {/* 个人简介 */}
         <Personal>
-          <div onClick ={() => navigate('/')} style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} aria-hidden="true">
-            <div style={{position: 'absolute', left: "10px"}}>
-            </div>
+          <div className="person-img" aria-hidden="true">
             <StaticImage
               src="../../assets/images/pro.jpg"
               width={110}
               quality={95}
               formats={["AUTO", "WEBP", "AVIF"]}
               alt="my photo"
-              style={{ marginBottom: `1rem` }}
+              className="inline-img"
+              onClick ={() => navigate('/')}
             />
+            <div className="git-icon">
+              <FontAwesomeIcon icon={faGithub} size="lg" color="#7d7d7d" aria-hidden="true" onClick ={() => navigate('https://github.com/cheepion')} />
+            </div>
           </div>
         </Personal>
         {/* 技术分类 */}
-        <Catalog >
+        <Catalog>
           <CatalogContent onClick={ () => navigate(`/articles`, {state: {typer: getMeData('js') }})}>
             <FontAwesomeIcon icon={faJs} size="lg" />
             <p>Javascript</p>

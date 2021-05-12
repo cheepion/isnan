@@ -82,6 +82,8 @@ module.exports = {
         // displayName: false
       },
     },
+    // 断点组件
+    'gatsby-plugin-breakpoints'
     {
       // md插件
       resolve: `gatsby-transformer-remark`,
