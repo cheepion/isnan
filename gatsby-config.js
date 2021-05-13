@@ -56,8 +56,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-gatsby-cloud`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
     // 排版插件
     {
@@ -83,7 +81,7 @@ module.exports = {
       },
     },
     // 断点组件
-    'gatsby-plugin-breakpoints'
+    'gatsby-plugin-breakpoints',
     {
       // md插件
       resolve: `gatsby-transformer-remark`,
