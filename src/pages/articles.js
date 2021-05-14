@@ -7,6 +7,7 @@ import { navigate } from "gatsby"
 // wrap Container
 const Container = styled.div`
   background-color: #ededed;
+  /* width: 39rem; */
   width: 620px;
   margin-left: 20px;
 `

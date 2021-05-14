@@ -3,9 +3,11 @@ import { useStaticQuery, graphql, navigate } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { Container, TopArticle, ArticleList } from "./style"
 import Image from '../../utils/Image';
+import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 
 export const Main = () => {
 
+  const breakpoints = useBreakpoint();
   const data =  useStaticQuery(graphql`
     query title {
       allMarkdownRemark(
@@ -37,7 +39,7 @@ export const Main = () => {
 
   return (
     <>
-      <Container>
+      <Container bp={breakpoints}>
         {/* 热门文章 */}
         <TopArticle>
           <div className="hot-article-left">

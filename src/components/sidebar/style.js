@@ -4,6 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: ${props => props.bp.md ? 'row' : 'column'};
   width: ${props => props.bp.md ? '720px' : '200px'};
+  /* width: ${props =>props.bp.md ? "45rem" : "12.5rem"}; */
   /* width: 200px; */
 `
 export const Personal = styled.div`

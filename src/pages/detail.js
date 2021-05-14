@@ -1,8 +1,11 @@
 import * as React from "react"
 import { Layout, Seo } from "../components"
 import styled from 'styled-components'
+import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 
 const Detail = (props) => {
+
+  const breakpoints = useBreakpoint();
   const articleData = props.location.state || ""
   // console.log('默认值', props)
   // 加载代码高亮
@@ -22,7 +25,7 @@ const Detail = (props) => {
     <>
       <Layout>
         <Seo title="welcome to my Articles which a detail show" />
-        <Container>
+        <Container bp={breakpoints}>
           {
             articleData
             ?  <Content>
@@ -31,7 +34,7 @@ const Detail = (props) => {
                   <img src={articleData && articleData.data.frontmatter.headImg} alt="内容精简图"/>
                 </div>
                 <div className="detail-content">
-                  <h3 style={{textAlign: 'center'}}>{articleData && articleData.data.frontmatter.title}</h3>
+                  <h4 style={{textAlign: 'center'}}>{articleData && articleData.data.frontmatter.title}</h4>
                   {/* 文章日期 */}
                   <div>
                     <p>{articleData && articleData.data.frontmatter.date}</p>
@@ -53,9 +56,9 @@ const Detail = (props) => {
 export default Detail
 
 const Container = styled.div`
-  width: 740px;
+  width: 720px;
   background-color: #ededed;
-  margin-left: 20px;
+  margin-left: ${props => props.bp.md ? "0" : "20px"};
 `
 const Content = styled.div`
   display: flex;
