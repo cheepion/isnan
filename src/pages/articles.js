@@ -7,6 +7,7 @@ import { navigate } from "gatsby"
 // wrap Container
 const Container = styled.div`
   background-color: #ededed;
+  width: 620px;
   margin-left: 20px;
 `
 const ArticlesBlock = styled.div`
@@ -16,7 +17,6 @@ const ArticlesBlock = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 600px;
     background-color: #5080ec;
     color: #fff;
     border-top-left-radius: 6px;

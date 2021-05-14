@@ -1,13 +1,14 @@
 import React from "react"
 import { useStaticQuery, graphql, navigate } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import { Container, Personal, Catalog, CatalogContent } from "./style"
+import { Container, Personal, Catalog } from "./style"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faReact, faNodeJs, faJs, faFedora, faGithub } from "@fortawesome/free-brands-svg-icons"
 import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 
 export const Sidebar = () => {
   
+  const breakpoints = useBreakpoint();
   const data =  useStaticQuery(graphql`
     query {
         allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
@@ -27,12 +28,12 @@ export const Sidebar = () => {
       }
     `)
   const getMeData = (typer) => data.allMarkdownRemark.edges.filter(({node}) => node.frontmatter.type === typer)
-  const breakpoints = useBreakpoint();
+  
   return (
     <>
-      <Container>
+      <Container bp={breakpoints}>
         {/* 个人简介 */}
-        <Personal>
+        <Personal bp={breakpoints}>
           <div className="person-img" aria-hidden="true">
             <StaticImage
               src="../../assets/images/pro.jpg"
@@ -49,23 +50,23 @@ export const Sidebar = () => {
           </div>
         </Personal>
         {/* 技术分类 */}
-        <Catalog>
-          <CatalogContent onClick={ () => navigate(`/articles`, {state: {typer: getMeData('js') }})}>
+        <Catalog bp={breakpoints}>
+          <div onClick={ () => navigate(`/articles`, {state: {typer: getMeData('js') }})}  aria-hidden="true">
             <FontAwesomeIcon icon={faJs} size="lg" />
             <p>Javascript</p>
-          </CatalogContent>
-          <CatalogContent onClick ={ () => navigate(`/articles`, {state: {typer: getMeData('react') }})}>
+          </div>
+          <div onClick ={ () => navigate(`/articles`, {state: {typer: getMeData('react') }})}  aria-hidden="true">
             <FontAwesomeIcon icon={faReact} size="lg" />
             <p>React</p>
-          </CatalogContent>
-          <CatalogContent onClick ={ () => navigate(`/articles`, {state: {typer: getMeData('gatsbyjs') }})}>
+          </div>
+          <div onClick ={ () => navigate(`/articles`, {state: {typer: getMeData('gatsbyjs') }})}  aria-hidden="true">
             <FontAwesomeIcon icon={faFedora} size="lg" />
             <p>GatsbyJS</p>
-          </CatalogContent>
-          <CatalogContent onClick ={ () => navigate(`/articles`, {state: {typer: getMeData('nodejs') }})}>
+          </div>
+          <div onClick ={ () => navigate(`/articles`, {state: {typer: getMeData('nodejs') }})}  aria-hidden="true">
             <FontAwesomeIcon icon={faNodeJs} size="lg" />
             <p>NestJS</p>
-          </CatalogContent>
+          </div>
         </Catalog>
       </Container>
     </>

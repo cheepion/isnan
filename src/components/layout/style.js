@@ -5,10 +5,10 @@ export const HeaderSpace = styled.header`
 `
 export const Container = styled.div`
   margin: 0 auto;
-  width: 960px;
+  width: ${props =>props.bp.md ? "720px" : "960px"};
   padding: 0 1.0875rem 1.45rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: ${props => props.bp.md ? "column" : "row"};
 `
 
 export const Footer = styled.footer`
