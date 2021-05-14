@@ -23,6 +23,7 @@ const Image = props => (
         }
       }
     `}
+    // childImageSharp
     render={data => {
       const image = data.images.edges.find(n => {
         return n.node.relativePath.includes(props.filename);

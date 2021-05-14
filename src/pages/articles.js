@@ -79,7 +79,7 @@ const Articles = (catalog) => {
                   <span>{articlelist && articlelist.typer[0].node.frontmatter.type} </span>
                 </div>
                 <div className="article-header__right">
-                  <span>More</span>
+                  {/* <span>More</span> */}
                 </div>
               </div>
               {/* 内容 */}
