@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { memo, useCallback } from "react"
 import { inject, observer} from "mobx-react"
 import { Layout, Seo } from "../components"
 import styled from 'styled-components'
@@ -7,7 +7,6 @@ import { navigate } from "gatsby"
 // wrap Container
 const Container = styled.div`
   background-color: #ededed;
-  /* width: 39rem; */
   width: 620px;
   margin-left: 20px;
 `
@@ -54,6 +53,12 @@ const ArticlesBlock = styled.div`
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
+  .other-result {
+    margin-top: 1.2rem;
+    color: yellowgreen;
+    background-color: #fff;
+     padding: 6;
+  }
 `
 
 const Articles = (catalog) => {
@@ -61,9 +66,9 @@ const Articles = (catalog) => {
   // console.log("catalog", catalog)
   const articlelist = catalog.location.state || ""
 
-  const goArticleDetail = (article) => {
+  const goArticleDetail = useCallback((article) => {
     navigate('/detail/', {state: { data: article}})
-  }
+  }, [articlelist])
 
   return (
     <>
@@ -85,7 +90,7 @@ const Articles = (catalog) => {
               </div>
               {/* 内容 */}
               {articlelist && articlelist.typer.map(({node}, index) => (
-                <div className="article-content" key={index} aria-hidden="true"
+                <div className="article-content" key={node} aria-hidden="true"
                   style={index === articlelist.typer.length-1 ? {paddingBottom: "10px"} : null} 
                   onClick={() => goArticleDetail(node)}
                 >
@@ -94,7 +99,7 @@ const Articles = (catalog) => {
                 </div>
               ))}
             </ArticlesBlock>
-          : <ArticlesBlock><p style={{marginTop: "1.2rem", color: 'yellowgreen', backgroundColor: '#fff', padding: 6}}>喜提鸭蛋, 但没鸭喜!</p></ArticlesBlock>
+          : <ArticlesBlock><p className="other-result">喜提鸭蛋, 但没鸭喜!</p></ArticlesBlock>
         }
       </Container>
     </Layout>
@@ -102,4 +107,4 @@ const Articles = (catalog) => {
   )
 }
 
-export default inject('articlesStore')(observer(Articles))
+export default memo(inject('articlesStore')(observer(Articles)))

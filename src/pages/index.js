@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { memo } from "react"
 import { Layout, Main, Seo } from "../components"
 import { Router } from "@reach/router"
 import NotFound from './404'
@@ -14,4 +14,4 @@ const IndexPage = () => {
     </Layout>
     )
 }
-export default IndexPage
+export default memo(IndexPage)
