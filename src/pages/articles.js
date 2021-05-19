@@ -68,7 +68,7 @@ const Articles = (catalog) => {
 
   const goArticleDetail = useCallback((article) => {
     navigate('/detail/', {state: { data: article}})
-  }, [articlelist])
+  }, [])
 
   return (
     <>
