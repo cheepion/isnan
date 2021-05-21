@@ -1,9 +1,9 @@
 import * as React from "react"
-import { Link } from 'gatsby'
+// import { Link } from 'gatsby'
 import {Layout, Seo} from "../components"
 
 const NotFoundPage = () => {
-  console.log('404', Link)
+  // console.log('404', Link)
   return (
     <Layout>
     <Seo title="404: Not found" />

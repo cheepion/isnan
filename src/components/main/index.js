@@ -2,11 +2,14 @@ import * as React from "react"
 import { useStaticQuery, graphql, navigate } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { Container, TopArticle, ArticleList } from "./style"
-import Image from '../../utils/Image';
 import { useBreakpoint } from 'gatsby-plugin-breakpoints';
+import uc0 from '/static/img/uc0.png'
+import uc1 from '/static/img/uc1.png'
+import uc2 from '/static/img/uc2.png'
+
 
 export const Main = () => {
-
+  let imgGroup = [uc0, uc1, uc2]
   const breakpoints = useBreakpoint();
   const data =  useStaticQuery(graphql`
     query title {
@@ -59,7 +62,7 @@ export const Main = () => {
             <div key={i} className="article-content" aria-hidden="true" onClick={() => goArticleDetail(node)}>
               <div className="article-top">
                 <div style={{ width: `220px` }}>
-                  <Image alt="Gatsby in Space" filename={`uc${i}.png`} />
+                  <img src={imgGroup[i]} alt="react subtitle" />
                 </div>
               </div>
               <div className="article-bottom">

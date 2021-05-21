@@ -90,7 +90,7 @@ const Articles = (catalog) => {
               </div>
               {/* 内容 */}
               {articlelist && articlelist.typer.map(({node}, index) => (
-                <div className="article-content" key={node} aria-hidden="true"
+                <div className="article-content" key={index} aria-hidden="true"
                   style={index === articlelist.typer.length-1 ? {paddingBottom: "10px"} : null} 
                   onClick={() => goArticleDetail(node)}
                 >

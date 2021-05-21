@@ -1,6 +1,6 @@
 // If you don't want to use TypeScript you can delete this file!
 import * as React from "react"
-import { PageProps, Link, graphql } from "gatsby"
+import { PageProps, graphql } from "gatsby"
 // import PropTypes from "prop-types"
 import {Layout, Seo} from "../components"
 
@@ -34,7 +34,7 @@ const UsingTypescript: React.FC<PageProps<DataProps>> = ({ data, path }) => (
       </a>
       .
     </p>
-    <Link to="/">甭事, 先不提交!</Link>
+    {/* <Link to="/">甭事, 先不提交!</Link> */}
   </Layout>
 )
 

@@ -10,8 +10,8 @@ const IndexPage = () => {
         <Router>
           <Main path="/" />
           <NotFound default />
-      </Router>
-    </Layout>
+        </Router>
+      </Layout>
     )
 }
 export default memo(IndexPage)
