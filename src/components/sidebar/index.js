@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql, navigate } from "gatsby"
+import { navigate } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { Container, Personal, Catalog } from "./style"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -7,28 +7,8 @@ import { faReact, faNodeJs, faJs, faFedora, faGithub } from "@fortawesome/free-b
 import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 
 export const Sidebar = () => {
-  
+
   const breakpoints = useBreakpoint();
-  const data =  useStaticQuery(graphql`
-    query {
-        allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
-          edges {
-            node {
-              frontmatter {
-                date
-                icon
-                title
-                type
-                headImg
-              }
-              html
-            }
-          }
-        }
-      }
-    `)
-  const getMeData = (typer) => data.allMarkdownRemark.edges.filter(({node}) => node.frontmatter.type === typer)
-  
   return (
     <>
       <Container bp={breakpoints}>
@@ -51,19 +31,19 @@ export const Sidebar = () => {
         </Personal>
         {/* 技术分类 */}
         <Catalog bp={breakpoints}>
-          <div onClick={ () => navigate(`/articles`, {state: {typer: getMeData('js') }})}  aria-hidden="true">
+          <div onClick={ () => navigate(`/articles`, {state: {typer: 'js' }})}  aria-hidden="true">
             <FontAwesomeIcon icon={faJs} size="lg" />
             <p>Javascript</p>
           </div>
-          <div onClick ={ () => navigate(`/articles`, {state: {typer: getMeData('react') }})}  aria-hidden="true">
+          <div onClick ={ () => navigate(`/articles`, {state: {typer: 'react' }})} aria-hidden="true">
             <FontAwesomeIcon icon={faReact} size="lg" />
             <p>React</p>
           </div>
-          <div onClick ={ () => navigate(`/articles`, {state: {typer: getMeData('gatsbyjs') }})}  aria-hidden="true">
+          <div onClick ={ () => navigate(`/articles`, {state: {typer: 'gatsbyjs' }})} aria-hidden="true">
             <FontAwesomeIcon icon={faFedora} size="lg" />
             <p>GatsbyJS</p>
           </div>
-          <div onClick ={ () => navigate(`/articles`, {state: {typer: getMeData('nodejs') }})}  aria-hidden="true">
+          <div onClick ={ () => navigate(`/articles`, {state: {typer: 'nodejs' }})} aria-hidden="true">
             <FontAwesomeIcon icon={faNodeJs} size="lg" />
             <p>NestJS</p>
           </div>

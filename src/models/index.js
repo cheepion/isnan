@@ -1,9 +1,11 @@
 import { detailStore } from './detail'
 import { articlesStore } from './articles'
+import { mainStore } from './main'
 
 const MobxStore = {
   detailStore,
-  articlesStore
+  articlesStore,
+  mainStore,
 }
 
 export default MobxStore

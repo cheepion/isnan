@@ -13,6 +13,7 @@ const Container = styled.div`
 const ArticlesBlock = styled.div`
   display: flex;
   flex-direction: column;
+  max-height: 800px;
   .article-header {
     display: flex;
     flex-direction: row;
@@ -28,6 +29,9 @@ const ArticlesBlock = styled.div`
     .article-header__right {
       margin-right: 10px;
       padding: 6px;
+      .article-more {
+        cursor: pointer;
+      }
     }
   }
   .article-content {
@@ -63,8 +67,19 @@ const ArticlesBlock = styled.div`
 
 const Articles = (catalog) => {
 
-  // console.log("catalog", catalog)
-  const articlelist = catalog.location.state || ""
+  // const []
+  console.log("catalog", catalog)
+  // let articlelist = catalog.location.state || ""
+  const hasTyper = catalog.location.state.typer || ""
+
+  // const readomReadArticles = useCallback(() => {
+  //   if(!articlelist) alert('没有文章数据');
+  //   articlelist.typer = articlelist.typer.sort(() => Math.random() -0.5)
+  //   console.log('文件数据', articlelist)
+  // }, [])
+  const { queryTypeAritcles } = catalog.articlesStore
+  const artilceList = queryTypeAritcles(hasTyper)
+  console.log('llsi', artilceList)
 
   const goArticleDetail = useCallback((article) => {
     navigate('/detail/', {state: { data: article}})
@@ -77,19 +92,19 @@ const Articles = (catalog) => {
       <Container >
         {/* 文章列表 */}
         {
-          articlelist 
+          hasTyper 
           ? <ArticlesBlock>
               {/* 标题栏 */}
               <div className="article-header">
                 <div className="article-header__left">
-                  <span>{articlelist && articlelist.typer[0].node.frontmatter.type} </span>
+                  {/* <span>{hasTyper && queryTypeAritcles(hasTyper)[0].node.frontmatter.type} </span> */}
                 </div>
                 <div className="article-header__right">
-                  {/* <span>More</span> */}
+                  {/* <span className="article-more" onClick={() => readomReadArticles()} aria-hidden="true">Readom</span> */}
                 </div>
               </div>
               {/* 内容 */}
-              {articlelist && articlelist.typer.map(({node}, index) => (
+              {/* {hasTyper && hasTyper.typer.map(({node}, index) => (
                 <div className="article-content" key={index} aria-hidden="true"
                   style={index === articlelist.typer.length-1 ? {paddingBottom: "10px"} : null} 
                   onClick={() => goArticleDetail(node)}
@@ -97,7 +112,7 @@ const Articles = (catalog) => {
                   <label className="articleDate">{node.frontmatter.date}</label>
                   <label>{node.frontmatter.title}</label>
                 </div>
-              ))}
+              ))} */}
             </ArticlesBlock>
           : <ArticlesBlock><p className="other-result">喜提鸭蛋, 但没鸭喜!</p></ArticlesBlock>
         }
