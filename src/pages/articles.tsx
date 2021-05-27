@@ -69,8 +69,8 @@ const Articles = (catalog) => {
 
   // const []
   console.log("catalog", catalog)
-  // let articlelist = catalog.location.state || ""
-  const hasTyper = catalog.location.state.typer || ""
+  let articlelist = catalog.location.state || ""
+  const hasTyper = !!articlelist.typer || ""
 
   // const readomReadArticles = useCallback(() => {
   //   if(!articlelist) alert('没有文章数据');

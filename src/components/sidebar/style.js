@@ -20,6 +20,7 @@ export const Personal = styled.div`
     align-items: center;
     justify-content: center;
     .inline-img {
+      width: 110px;
       border-radius: 100%;
       cursor: pointer;
       :hover {

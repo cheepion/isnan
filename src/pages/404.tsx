@@ -1,9 +1,7 @@
-import * as React from "react"
-// import { Link } from 'gatsby'
+import { memo } from "react"
 import {Layout, Seo} from "../components"
 
-const NotFoundPage = () => {
-  // console.log('404', Link)
+const NotFoundPage = (props) => {
   return (
     <Layout>
     <Seo title="404: Not found" />
@@ -13,4 +11,4 @@ const NotFoundPage = () => {
   </Layout>
   )
 }
-export default NotFoundPage
+export default memo(NotFoundPage)

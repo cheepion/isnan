@@ -1,16 +1,16 @@
-import React, { memo } from "react"
+import React, { memo, FC } from "react"
 import { Layout, Main, Seo } from "../components"
-// import { Main } from "../components/main"
 import { Router } from "@reach/router"
-import NotFound from './404'
+import { PageProps } from "gatsby"
+import NotFoundPage from './404'
 
-const IndexPage = () => {
+const IndexPage: FC<PageProps> = () => {
     return (
       <Layout>
         <Seo title="Home" />
         <Router>
           <Main path="/" />
-          <NotFound default />
+          <NotFoundPage default />
         </Router>
       </Layout>
     )

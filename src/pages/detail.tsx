@@ -3,7 +3,7 @@ import { Layout, Seo } from "../components"
 import styled from 'styled-components'
 import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 
-const Detail = (props) => {
+const Detail = (props: any) => {
 
   const breakpoints = useBreakpoint();
   const articleData = props.location.state || ""
@@ -58,7 +58,7 @@ export default Detail
 const Container = styled.div`
   width: 720px;
   background-color: #ededed;
-  margin-left: ${props => props.bp.md ? "0" : "20px"};
+  margin-left: ${(props: any) => props.bp.md ? "0" : "20px"};
 `
 const Content = styled.div`
   display: flex;

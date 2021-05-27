@@ -38,3 +38,6 @@ https://github.com/gatsbyjs/gatsby.git
 
   ### 项目结构说明
     > 采用mobx管理的类MVC架构.
+
+  ### 调试
+  gatsby build --verbose
