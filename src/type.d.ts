@@ -27,3 +27,16 @@ type QueryAtion = {
 }
 
 type DispatchQueryType = (args: QueryAtion) => QueryAtion
+
+// markdown文档格式
+interface IMarkdown {
+  frontmatter: {
+    title: string,
+    subTitle: string,
+    date: string,
+    icon: string,
+    type: string,
+    headImg: string,
+  }
+  html: string
+}

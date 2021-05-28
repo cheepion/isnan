@@ -1,7 +1,11 @@
-import { memo } from "react"
+import React, { memo, FC } from "react"
 import {Layout, Seo} from "../components"
+import { PageProps } from "gatsby"
 
-const NotFoundPage = (props) => {
+interface IProps {
+  default: boolean
+}
+const NotFoundPage: FC<PageProps | IProps> = (props) => {
   return (
     <Layout>
     <Seo title="404: Not found" />
@@ -11,4 +15,4 @@ const NotFoundPage = (props) => {
   </Layout>
   )
 }
-export default memo(NotFoundPage)
+export default NotFoundPage

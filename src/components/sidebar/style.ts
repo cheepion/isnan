@@ -1,13 +1,14 @@
 import styled from 'styled-components'
+import { BreakpointsObject } from 'gatsby-plugin-breakpoints';
 
-export const Container = styled.div`
+export const Container = styled.div<{bp: BreakpointsObject}>`
   display: flex;
   flex-direction: ${props => props.bp.md ? 'row' : 'column'};
   width: ${props => props.bp.md ? '720px' : '200px'};
   /* width: ${props =>props.bp.md ? "45rem" : "12.5rem"}; */
   /* width: 200px; */
 `
-export const Personal = styled.div`
+export const Personal = styled.div<{bp: BreakpointsObject}>`
   display: flex;
   flex-direction: ${props => props.bp.md ? 'row' : 'column'};
   ${props => props.bp.md ? 'margin: 0 20px 20px' : 'margin-bottom: 20px;'};
@@ -48,7 +49,7 @@ export const Personal = styled.div`
 
 
 `
-export const Catalog = styled.div`
+export const Catalog = styled.div<{bp: BreakpointsObject}>`
   position: relative;
   display: flex;
   flex-direction: ${props => props.bp.md ? 'row' : 'column'};

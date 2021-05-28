@@ -15,8 +15,10 @@ const store = () => createStore(reducer, applyMiddleware(thunk))
 // const store = () => createStore(reducer, compose(applyMiddleware(thunk), devtools));
 
 // preloadedState will be passed in by the plugin
-export default preloadedState => {
-  return store();
-  // return createStore(reducer, preloadedState);
-};
+// export default preloadedState => {
+//   return store();
+//   // return createStore(reducer, preloadedState);
+// };
+
+export default store
 

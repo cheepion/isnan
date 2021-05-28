@@ -1,9 +1,10 @@
 import styled from 'styled-components'
+import { BreakpointsObject } from 'gatsby-plugin-breakpoints';
 
 export const HeaderSpace = styled.header`
   margin-top: 2rem;
 `
-export const Container = styled.div`
+export const Container = styled.div<{bp: BreakpointsObject}>`
   margin: 0 auto;
   width: ${props =>props.bp.md ? "720px" : "960px"};
   padding: ${props =>props.bp.md ? "0" : "0 1.0875rem 1.45rem"};

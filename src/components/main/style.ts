@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { BreakpointsObject } from 'gatsby-plugin-breakpoints';
 
-export const Container = styled.div`
+export const Container = styled.div<{bp: BreakpointsObject}>`
   width: 720px;
   margin-left: ${props => props.bp.md ? "0" : "20px"};
 `

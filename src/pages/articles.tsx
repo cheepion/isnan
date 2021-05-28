@@ -1,8 +1,7 @@
-import React, { memo, useCallback } from "react"
-import { inject, observer} from "mobx-react"
+import React, { useCallback, FC, useState, useEffect } from "react"
 import { Layout, Seo } from "../components"
 import styled from 'styled-components'
-import { navigate } from "gatsby"
+import { navigate, PageProps } from "gatsby"
 
 // wrap Container
 const Container = styled.div`
@@ -56,6 +55,7 @@ const ArticlesBlock = styled.div`
   .article-content:last-child {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    padding-bottom: 12px
   }
   .other-result {
     margin-top: 1.2rem;
@@ -65,21 +65,33 @@ const ArticlesBlock = styled.div`
   }
 `
 
-const Articles = (catalog) => {
+const Articles:FC<PageProps> = (props) => {
 
-  // const []
-  console.log("catalog", catalog)
-  let articlelist = catalog.location.state || ""
-  const hasTyper = !!articlelist.typer || ""
+  console.log("props", props)
+  const [catalog, setCatalog] = useState<any>(props.location.state)
+  const [reload, setLoad] = useState(false)
+  const [articles, setArticles] = useState<Array<any> | null>(null)
+  
+  useEffect(() => {
+    if(catalog) {
+      setArticles(catalog.typer)
+      setLoad(false)
+    }
+  }, [articles, reload])
 
-  // const readomReadArticles = useCallback(() => {
-  //   if(!articlelist) alert('没有文章数据');
-  //   articlelist.typer = articlelist.typer.sort(() => Math.random() -0.5)
-  //   console.log('文件数据', articlelist)
-  // }, [])
-  const { queryTypeAritcles } = catalog.articlesStore
-  const artilceList = queryTypeAritcles(hasTyper)
-  console.log('llsi', artilceList)
+  console.log("articles", articles)
+  // let articlelist = catalog.location.state || ""
+  // const hasTyper = !!articlelist.typer || ""
+
+  // const { queryTypeAritcles } = catalog.articlesStore
+  // const artilceList = queryTypeAritcles(hasTyper)
+  // console.log('llsi', artilceList)
+  const readomSortArticles = () => {
+    const sortArticle = articles && articles.sort(() => Math.random()>.5 ? -1 : 1)
+    console.log('11234', sortArticle)
+    setArticles(sortArticle)
+    setLoad(true)
+  }
 
   const goArticleDetail = useCallback((article) => {
     navigate('/detail/', {state: { data: article}})
@@ -92,27 +104,24 @@ const Articles = (catalog) => {
       <Container >
         {/* 文章列表 */}
         {
-          hasTyper 
+          articles 
           ? <ArticlesBlock>
               {/* 标题栏 */}
               <div className="article-header">
                 <div className="article-header__left">
-                  {/* <span>{hasTyper && queryTypeAritcles(hasTyper)[0].node.frontmatter.type} </span> */}
+                  <span>{articles && articles[0].node.frontmatter.type} </span>
                 </div>
                 <div className="article-header__right">
-                  {/* <span className="article-more" onClick={() => readomReadArticles()} aria-hidden="true">Readom</span> */}
+                  <span className="article-more" onClick={readomSortArticles} aria-hidden="true">Readom</span>
                 </div>
               </div>
               {/* 内容 */}
-              {/* {hasTyper && hasTyper.typer.map(({node}, index) => (
-                <div className="article-content" key={index} aria-hidden="true"
-                  style={index === articlelist.typer.length-1 ? {paddingBottom: "10px"} : null} 
-                  onClick={() => goArticleDetail(node)}
-                >
+              {articles && articles.map(({node}, index) => (
+                <div className="article-content" key={index} aria-hidden="true"onClick={() => goArticleDetail(node)}>
                   <label className="articleDate">{node.frontmatter.date}</label>
                   <label>{node.frontmatter.title}</label>
                 </div>
-              ))} */}
+              ))}
             </ArticlesBlock>
           : <ArticlesBlock><p className="other-result">喜提鸭蛋, 但没鸭喜!</p></ArticlesBlock>
         }
@@ -122,4 +131,4 @@ const Articles = (catalog) => {
   )
 }
 
-export default memo(inject('articlesStore')(observer(Articles)))
+export default Articles
