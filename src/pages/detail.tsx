@@ -10,7 +10,7 @@ const Detail: FC<PageProps> = (props) => {
   const [localState, setLocalState] = useState<any>(props.location.state)
   const [articleData, setArticleData] = useState<IMarkdown | null>(null)
 
-  console.log('articleData', articleData)
+  // console.log('articleData', articleData)
   // 加载代码高亮
   useEffect( () => {
     async function inHighCodeShow() {

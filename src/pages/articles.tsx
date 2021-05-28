@@ -79,16 +79,9 @@ const Articles:FC<PageProps> = (props) => {
     }
   }, [articles, reload])
 
-  console.log("articles", articles)
-  // let articlelist = catalog.location.state || ""
-  // const hasTyper = !!articlelist.typer || ""
-
-  // const { queryTypeAritcles } = catalog.articlesStore
-  // const artilceList = queryTypeAritcles(hasTyper)
-  // console.log('llsi', artilceList)
+  // console.log("articles", articles)
   const readomSortArticles = () => {
     const sortArticle = articles && articles.sort(() => Math.random()>.5 ? -1 : 1)
-    console.log('11234', sortArticle)
     setArticles(sortArticle)
     setLoad(true)
   }
