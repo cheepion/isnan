@@ -1,4 +1,4 @@
-import React, {useCallback} from "react"
+import React, {useCallback, useState} from "react"
 import { navigate, useStaticQuery, graphql } from "gatsby"
 import { Container, Personal, Catalog } from "./style"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -9,6 +9,7 @@ import avatar from '/static/img/pro.jpg'
 export const Sidebar = () => {
 
   const breakpoints = useBreakpoint();
+  const [catalog, setCatalog] = useState<string[]>(['js', 'react', 'gatsbyjs', 'nodejs'])
 
   const {allMarkdownRemark} =  useStaticQuery(graphql`
   query {
@@ -28,7 +29,7 @@ export const Sidebar = () => {
       }
     }
   `)
-  const getArticle = useCallback((typer: string) => allMarkdownRemark.edges.filter(({node}: any) => node.frontmatter.type === typer), [])
+  const getArticle = useCallback((typer: string) => allMarkdownRemark.edges.filter(({node}: any) => node.frontmatter.type === typer), [catalog])
 
   return (
     <>
@@ -44,19 +45,19 @@ export const Sidebar = () => {
         </Personal>
         {/* 技术分类 */}
         <Catalog bp={breakpoints}>
-          <div onClick={ () => navigate(`/articles`, {state: {typer: getArticle('js') }})}  aria-hidden="true">
+          <div onClick={ () => navigate(`/articles`, {state: {typer: getArticle(catalog[0])}})}  aria-hidden="true">
             <FontAwesomeIcon icon={faJs} size="lg" />
             <p>Javascript</p>
           </div>
-          <div onClick ={ () => navigate(`/articles`, {state: {typer: getArticle('react') }})} aria-hidden="true">
+          <div onClick ={ () => navigate(`/articles`, {state: {typer: getArticle(catalog[1]) }})} aria-hidden="true">
             <FontAwesomeIcon icon={faReact} size="lg" />
             <p>React</p>
           </div>
-          <div onClick ={ () => navigate(`/articles`, {state: {typer: getArticle('gatsbyjs') }})} aria-hidden="true">
+          <div onClick ={ () => navigate(`/articles`, {state: {typer: getArticle(catalog[2]) }})} aria-hidden="true">
             <FontAwesomeIcon icon={faFedora} size="lg" />
             <p>GatsbyJS</p>
           </div>
-          <div onClick ={ () => navigate(`/articles`, {state: {typer: getArticle('nodejs') }})} aria-hidden="true">
+          <div onClick ={ () => navigate(`/articles`, {state: {typer: getArticle(catalog[3]) }})} aria-hidden="true">
             <FontAwesomeIcon icon={faNodeJs} size="lg" />
             <p>NestJS</p>
           </div>

@@ -1,4 +1,4 @@
-import React, { useCallback, FC, useState, useEffect } from "react"
+import React, { useCallback, FC, useState, useEffect, useLayoutEffect } from "react"
 import { Layout, Seo } from "../components"
 import styled from 'styled-components'
 import { navigate, PageProps } from "gatsby"
@@ -67,23 +67,15 @@ const ArticlesBlock = styled.div`
 
 const Articles:FC<PageProps> = (props) => {
 
-  console.log("props", props)
-  const [catalog, setCatalog] = useState<any>(props.location.state)
-  const [reload, setLoad] = useState(false)
+  // console.log("props", props)
+  const { typer }: any  = props.location.state || ''
   const [articles, setArticles] = useState<Array<any> | null>(null)
-  
-  useEffect(() => {
-    if(catalog) {
-      setArticles(catalog.typer)
-      setLoad(false)
-    }
-  }, [articles, reload])
 
-  // console.log("articles", articles)
+  useEffect(() => setArticles(typer), [typer])
+
   const readomSortArticles = () => {
-    const sortArticle = articles && articles.sort(() => Math.random()>.5 ? -1 : 1)
-    setArticles(sortArticle)
-    setLoad(true)
+    const sortArticle: any = articles && articles.sort(() => Math.random()>.5 ? -1 : 1)
+    setArticles([...sortArticle])
   }
 
   const goArticleDetail = useCallback((article) => {
