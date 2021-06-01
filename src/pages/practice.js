@@ -2,6 +2,7 @@ import React, {useState} from "react"
 // import styled from 'styled-components'
 import ReactDOM from 'react-dom'
 // import PropTypes from "prop-types"
+import { compose } from 'redux'
 
 const Practice = (props) => {
 
@@ -21,10 +22,27 @@ const Practice = (props) => {
     } 
   }
 
-  // render props instance
-  const rPorps = () => {
-
+  
+  const rPorps = (n1, n2, n3) => {
+    
+    // const {n1, n2, n3} = options
+    const  fun1 = n1 => {
+      console.log("fn1", n1)
+      return 1
+    }
+    const fun2 = n2 => {
+      console.log('fn2', n2)
+      return 2
+    }
+    const fun3 = (n1, n2, n3) => {
+      console.log('fn3', n1, n2, n3)
+      return 3
+    }
+    const fn = compose(fun1, fun2, fun3)
+    
+    console.log('finish', fn(n1, n2, n3))
   }
+
   // 传送门
   const PortalModel =({ message, open, onClose, children })=> {
     if (!open) return null;
@@ -46,7 +64,7 @@ const Practice = (props) => {
       <div>
         <button onClick={twoNumber.bind(this, [2, 5, 7, 10], 9)} aria-hidden="true">Map两数之和</button>
         <br />
-        <button onClick={rPorps} aria-hidden="true">Render props</button>
+        <button onClick={() => rPorps("a", "b", "c")} aria-hidden="true">Render props</button>
         <br />
         <button onClick={() => setOpenPortal(true)} aria-hidden="true">Open Modal</button>
         <PortalModel message="Hello World!" open={openPortal}  onClose={() => setOpenPortal(false)} />

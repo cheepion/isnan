@@ -15,6 +15,15 @@ export function queryAllArticles(queryArticle: QueryArticles) {
   }
   return (dispatch: DispatchQueryType) => dispatch(action)
 }
+
+export function fetchArticle(article: Article) {
+  const action: ArticleAction = {
+    type: actionTypes.FETCH_ARTICLE,
+    article
+  }
+  return (dispatch: DispatchType) => dispatch(action)
+}
+
 // three yuan
 // export const getBannerList = () => {
 //   return (dispatch) => {
