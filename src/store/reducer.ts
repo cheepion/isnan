@@ -1,4 +1,5 @@
 import * as actionTypes from "./actionTypes"
+import practice from '../components/practice/store/reducer'
 import { combineReducers } from 'redux'
 
 const initialArticleState: ArticleState = {
@@ -77,7 +78,8 @@ const queryArticle = (
 
 const reducer = combineReducers({
     useArticle,
+    pra: practice,
     queryArticle
 })
 
-export default  reducer
+export default reducer
