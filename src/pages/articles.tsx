@@ -1,4 +1,4 @@
-import React, { useCallback, FC, useState, useEffect, useLayoutEffect } from "react"
+import React, { useCallback, FC, useState, useEffect } from "react"
 import { Layout, Seo } from "../components"
 import styled from 'styled-components'
 import { navigate, PageProps } from "gatsby"
@@ -67,7 +67,6 @@ const ArticlesBlock = styled.div`
 
 const Articles:FC<PageProps> = (props) => {
 
-  // console.log("props", props)
   const { typer }: any  = props.location.state || ''
   const [articles, setArticles] = useState<Array<any> | null>(null)
 
