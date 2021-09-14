@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { BreakpointsObject } from 'gatsby-plugin-breakpoints';
 
+
 export const HeaderSpace = styled.header`
   margin-top: 2rem;
 `
@@ -13,5 +14,20 @@ export const Container = styled.div<{bp: BreakpointsObject}>`
 `
 
 export const Footer = styled.footer`
-  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  padding: .8rem .5rem;
+  background-color: #fafafa;
+  opacity: 0.8;
+  .footer-link {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #343434;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-shadow: 3px 1px 1px #e4e4e4;
+  }
 `

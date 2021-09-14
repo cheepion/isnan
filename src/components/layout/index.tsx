@@ -4,6 +4,7 @@ import { Sidebar } from '../index'
 import { HeaderSpace, Container, Footer } from './style'
 import "./layout.css"
 import { useBreakpoint } from 'gatsby-plugin-breakpoints';
+import { Link } from "gatsby"
 
 export const Layout:FC = ({ children }) => {
 
@@ -15,7 +16,9 @@ export const Layout:FC = ({ children }) => {
           <Sidebar />
           <main>{children}</main>
         </Container>
-      <Footer />
+      <Footer>
+        <Link to="https://beian.miit.gov.cn/" className={"footer-link"}>粤ICP备2021064856号</Link>
+      </Footer>
     </>
   )
 }
